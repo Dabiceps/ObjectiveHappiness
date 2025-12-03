@@ -1,5 +1,7 @@
 using System.Resources;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -7,7 +9,7 @@ public class BuildingManager : MonoBehaviour
 
     [Header("Ghost Settings")]
     public float ghostHeightOffset = 0.5f; // distance au-dessus du sol
-
+    public NavMeshSurface navMeshSurface;
 
     public LayerMask buildableLayer;
     public float maxPlacementDistance = 100f;
@@ -102,6 +104,7 @@ public class BuildingManager : MonoBehaviour
     void EndPlacement()
     {
         Destroy(currentGhost);
+        navMeshSurface.BuildNavMesh();
         isPlacing = false;
         currentGhost = null;
         currentData = null;

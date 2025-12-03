@@ -2476,6 +2476,7 @@ GameObject:
   - component: {fileID: 8621610240688183274}
   - component: {fileID: 4924750982229875467}
   - component: {fileID: 4618071468086233575}
+  - component: {fileID: 9220263947039138140}
   m_Layer: 0
   m_Name: ButtonFarm
   m_TagString: Untagged
@@ -2585,6 +2586,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9220263947039138140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069742239640487525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481119f46c00f6d4da6f271f25ed8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 890c37456d03ffc4c8a9406c5ba288db, type: 2}
 --- !u!1 &7786975204345259049
 GameObject:
   m_ObjectHideFlags: 0

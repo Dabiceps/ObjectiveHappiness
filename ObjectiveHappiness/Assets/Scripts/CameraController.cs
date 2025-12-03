@@ -46,15 +46,12 @@ public class CameraControllerTopDown : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll == 0f) return;
 
-        // 1) Modifier la hauteur
         float newY = cam.position.y - scroll * zoomSpeed;
         newY = Mathf.Clamp(newY, minHeight, maxHeight);
 
         Vector3 pos = cam.position;
         pos.y = newY;
         cam.position = pos;
-
-        // 2) Adapter l'angle suivant la hauteur
         float t = Mathf.InverseLerp(minHeight, maxHeight, newY);
         float angle = Mathf.Lerp(minAngle, maxAngle, t);
 
