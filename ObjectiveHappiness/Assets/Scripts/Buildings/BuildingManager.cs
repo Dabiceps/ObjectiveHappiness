@@ -1,4 +1,5 @@
 using System.Resources;
+using TMPro;
 using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
@@ -6,7 +7,7 @@ public class BuildingManager : MonoBehaviour
     public static BuildingManager Instance;
 
     [Header("Ghost Settings")]
-    public float ghostHeightOffset = 0.1f; // distance au-dessus du sol
+    public float ghostHeightOffset = 0.5f; // distance au-dessus du sol
 
 
     public LayerMask buildableLayer;
@@ -117,12 +118,22 @@ public class BuildingManager : MonoBehaviour
 
     bool IsPlacementValid(Vector3 pos)
     {
-        // Ici tu peux ajouter :
-        // - overlap check
-        // - grid alignment
-        // - zone constraints
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        return true; // Pour l’instant toujours valide
+        if (Physics.Raycast(ray, out RaycastHit hit, maxPlacementDistance, buildableLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+            // Ici tu peux ajouter :
+            // - overlap check
+            // - grid alignment
+            // - zone constraints
+
+            return true; // Pour l’instant toujours valide
     }
 
     void SetGhostColor(Color c)
