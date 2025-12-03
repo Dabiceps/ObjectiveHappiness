@@ -5,6 +5,10 @@ public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager Instance;
 
+    [Header("Ghost Settings")]
+    public float ghostHeightOffset = 0.1f; // distance au-dessus du sol
+
+
     public LayerMask buildableLayer;
     public float maxPlacementDistance = 100f;
 
@@ -12,8 +16,15 @@ public class BuildingManager : MonoBehaviour
     private GameObject currentGhost;
     private bool isPlacing = false;
 
-    void Awake()
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Plus d’un BuildingManager détecté dans la scène ! Un a été supprimé.");
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
@@ -45,7 +56,10 @@ public class BuildingManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, maxPlacementDistance, buildableLayer))
         {
-            currentGhost.transform.position = hit.point;
+            Vector3 ghostPos = hit.point;
+            ghostPos.y += ghostHeightOffset;  // Décalage pour ne pas clipper
+            currentGhost.transform.position = ghostPos;
+
 
             bool valid = IsPlacementValid(hit.point);
 
