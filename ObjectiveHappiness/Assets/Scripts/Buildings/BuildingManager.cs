@@ -34,7 +34,6 @@ public class BuildingManager : MonoBehaviour
 
         HandleGhostMovement();
         HandlePlacementInput();
-        GameManager.Instance.test = 5;
     }
 
     public void StartPlacing(BuildingData data)

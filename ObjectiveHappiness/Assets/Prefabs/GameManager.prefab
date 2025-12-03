@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1213006116789294406}
   - component: {fileID: 1270042488778968734}
   - component: {fileID: 1876255501839555154}
+  - component: {fileID: 1637655590979129000}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -64,3 +65,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wood: 100
   stone: 100
+--- !u!114 &1637655590979129000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679997446547093190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ee20d01e925864ca49d61f20a4222b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DayDurationInSeconds: 10
+  NightDurationInSeconds: 10
+  currentDayState: 0
