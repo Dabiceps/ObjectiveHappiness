@@ -632,9 +632,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28220e7b391ae1a4a992e199cdfaac41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostHeightOffset: 0.1
   buildableLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   maxPlacementDistance: 100
 --- !u!4 &1563438692
 Transform:
