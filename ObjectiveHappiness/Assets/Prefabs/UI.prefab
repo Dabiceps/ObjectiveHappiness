@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4386219362383066079}
   - component: {fileID: 675370190783566215}
+  - component: {fileID: 7385527607147528241}
   m_Layer: 5
   m_Name: ResourceGrid
   m_TagString: Untagged
@@ -30,8 +31,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1046835783486518270}
-  - {fileID: 1112510946999294292}
   - {fileID: 2680331928016719757}
+  - {fileID: 1112510946999294292}
   - {fileID: 6667001027390759315}
   m_Father: {fileID: 7316115718531360768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,6 +65,22 @@ MonoBehaviour:
   m_Spacing: {x: 100, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &7385527607147528241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5717632666997178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217fb188586e1ea4a889fcd40116fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  woodDisplay: {fileID: 2105679740580912779}
+  stoneDisplay: {fileID: 4733763050044601525}
+  foodDisplay: {fileID: 6268887452384695966}
+  residentDisplay: {fileID: 4997878297426337813}
 --- !u!1 &186450284408883275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1171,7 @@ GameObject:
   - component: {fileID: 9052334786741860063}
   - component: {fileID: 4733763050044601525}
   m_Layer: 5
-  m_Name: Rock
+  m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
