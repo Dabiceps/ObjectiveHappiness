@@ -1,5 +1,4 @@
 using System.Resources;
-using TMPro;
 using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
@@ -35,6 +34,7 @@ public class BuildingManager : MonoBehaviour
 
         HandleGhostMovement();
         HandlePlacementInput();
+        GameManager.Instance.test = 5;
     }
 
     public void StartPlacing(BuildingData data)
@@ -118,22 +118,13 @@ public class BuildingManager : MonoBehaviour
 
     bool IsPlacementValid(Vector3 pos)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        // Ici tu peux ajouter :
+        // - overlap check
+        // - grid alignment
+        // - zone constraints
 
-        if (Physics.Raycast(ray, out RaycastHit hit, maxPlacementDistance, buildableLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-            // Ici tu peux ajouter :
-            // - overlap check
-            // - grid alignment
-            // - zone constraints
-
-            return true; // Pour l’instant toujours valide
+        return true; // Pour l’instant toujours valide
     }
 
     void SetGhostColor(Color c)
