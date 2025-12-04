@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4386219362383066079}
   - component: {fileID: 675370190783566215}
-  - component: {fileID: 7385527607147528241}
+  - component: {fileID: 5946953542907465109}
   m_Layer: 5
   m_Name: ResourceGrid
   m_TagString: Untagged
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Spacing: {x: 100, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &7385527607147528241
+--- !u!114 &5946953542907465109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,14 +74,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5717632666997178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217fb188586e1ea4a889fcd40116fb50, type: 3}
+  m_Script: {fileID: 11500000, guid: 04c389c98055383419339b16baad3e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   woodDisplay: {fileID: 2105679740580912779}
   stoneDisplay: {fileID: 4733763050044601525}
   foodDisplay: {fileID: 6268887452384695966}
   residentDisplay: {fileID: 4997878297426337813}
-  prosperityDisplay: {fileID: 0}
+  prosperityDisplay: {fileID: 2675167864062519993}
 --- !u!1 &186450284408883275
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 4113058669135762311}
   - component: {fileID: 5442532401486644479}
   - component: {fileID: 4074474835596835963}
+  - component: {fileID: 5908696031628004963}
   m_Layer: 0
   m_Name: ButtonMuseum
   m_TagString: Untagged
@@ -397,6 +398,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5908696031628004963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763911271414103031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481119f46c00f6d4da6f271f25ed8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 1af2214da903e7946ba7d589e97d2a77, type: 2}
 --- !u!1 &776773822049515390
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +843,7 @@ GameObject:
   - component: {fileID: 544727173989622077}
   - component: {fileID: 6673805128992497416}
   - component: {fileID: 3505498536189536760}
+  - component: {fileID: 5821710543342873462}
   m_Layer: 0
   m_Name: ButtonSchool
   m_TagString: Untagged
@@ -938,6 +953,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5821710543342873462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332425631695080739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481119f46c00f6d4da6f271f25ed8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: e2de44ec74552b444a27da29fcaa42f1, type: 2}
 --- !u!1 &1727279617131216075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,6 +1469,7 @@ GameObject:
   - component: {fileID: 2287262162230678446}
   - component: {fileID: 9192996848474085237}
   - component: {fileID: 2791794175507692440}
+  - component: {fileID: 6813960131813750538}
   m_Layer: 0
   m_Name: ButtonHouse
   m_TagString: Untagged
@@ -1550,6 +1579,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6813960131813750538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158745711866057290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481119f46c00f6d4da6f271f25ed8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: b12c441f6e9b40f41a1df62474aa4729, type: 2}
 --- !u!1 &2230921357565407968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,6 +2695,7 @@ GameObject:
   - component: {fileID: 8105989630870321184}
   - component: {fileID: 4054210477293603894}
   - component: {fileID: 7865609228586185494}
+  - component: {fileID: 3360185399628599078}
   m_Layer: 0
   m_Name: ButtonLibrary
   m_TagString: Untagged
@@ -2762,6 +2805,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3360185399628599078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491815633441046969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481119f46c00f6d4da6f271f25ed8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 8167de1eb2475544bbb1da8d6d768265, type: 2}
 --- !u!1 &5503216442527591429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3536,7 @@ GameObject:
   - component: {fileID: 8621610240688183274}
   - component: {fileID: 4924750982229875467}
   - component: {fileID: 4618071468086233575}
+  - component: {fileID: 6753170544357017542}
   m_Layer: 0
   m_Name: ButtonFarm
   m_TagString: Untagged
@@ -3589,6 +3646,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6753170544357017542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069742239640487525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481119f46c00f6d4da6f271f25ed8a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingData: {fileID: 11400000, guid: 890c37456d03ffc4c8a9406c5ba288db, type: 2}
 --- !u!1 &7174900486151561414
 GameObject:
   m_ObjectHideFlags: 0
