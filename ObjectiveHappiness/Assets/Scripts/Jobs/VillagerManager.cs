@@ -39,7 +39,7 @@ public class VillagerManager : MonoBehaviour
         CheckList();
     }
 
-    void EndWork()
+    public void StartNight()
     {
         foreach (Transform villager in villagers)
         {

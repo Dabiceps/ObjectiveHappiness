@@ -17,7 +17,27 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public void EndJob()
     {
-        Debug.Log("Le villageois a terminé son travail.");
+        this.gameObject.SetActive(true);
+        foreach (Transform building in GameObject.Find("Buildings").transform)
+        {
+            if (building != null && building.CompareTag("Maison"))
+            {
+                Building building1 = building.GetComponent<Building>();
+                if (!building1.isUsed)
+                {
+                    Debug.Log("Le villageois se dirige vers la maison");
+                    NavMeshAgent agent = GetComponent<NavMeshAgent>();
+                    agent.SetDestination(building.position);
+
+                    building1.isUsed = true;
+
+                    if (jobRoutine != null) StopCoroutine(jobRoutine);
+                    jobRoutine = StartCoroutine(WaitUntilArrived());
+
+                    return;
+                }
+            }
+        }
     }
 
     public void StartJob()
@@ -53,12 +73,13 @@ public class Villager : MonoBehaviour, IJobInterface
             agent.remainingDistance <= agent.stoppingDistance &&
             (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
         );
-
-        DoJob();
+        if(GameManager.Instance.currentDayState == GameManager.DayState.Work)
+            DoJob();
+        else
+            DoSleep();
     }
-
-    void Start()
+    public void DoSleep()
     {
-
+        Debug.Log("Le villageois dort");
     }
 }

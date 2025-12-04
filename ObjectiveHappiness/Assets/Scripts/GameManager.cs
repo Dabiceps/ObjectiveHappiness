@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             FixNightTime--;
         }
+        VillagerManager.Instance.StartNight();
         currentDay++;
         StartCoroutine(DayCoroutine());
         yield return null;

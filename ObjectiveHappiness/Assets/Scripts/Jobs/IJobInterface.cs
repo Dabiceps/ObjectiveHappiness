@@ -10,4 +10,6 @@ public interface IJobInterface
 
     // Appelé en fin de journée si nécessaire
     void EndJob();
+
+    void DoSleep();
 }
