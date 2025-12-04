@@ -18,6 +18,13 @@ public class BuildingManager : MonoBehaviour
     private GameObject currentGhost;
     private bool isPlacing = false;
 
+    public GameObject parent;
+
+    private void Start()
+    {
+        parent = GameObject.Find("Buildings");
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -97,7 +104,7 @@ public class BuildingManager : MonoBehaviour
         SpendResources(currentData);
 
         var instance = Instantiate(currentData.prefab, pos, Quaternion.identity);
-        instance.transform.SetParent(GameObject.Find("Buildings").transform, worldPositionStays: true);
+        instance.transform.SetParent(parent.transform, worldPositionStays: true);
 
         return true;
     }

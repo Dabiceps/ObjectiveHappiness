@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Villager : MonoBehaviour, IJobInterface
 {
+    private GameObject buildings;
+
     public string JobName => "Villageois";
 
     public void DoJob()
@@ -19,13 +22,23 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public void StartJob()
     {
-        Debug.Log("Le villageois commence son travail.");
+        foreach (Transform building in buildings.transform)
+        {
+            if (building != null && building.tag == "Ecole")
+            {
+
+                Debug.Log("Le villageois commence à aller à la ferme");
+                NavMeshAgent agent = GetComponent<NavMeshAgent>();
+                agent.SetDestination(building.position);
+                return;
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        buildings = BuildingManager.Instance.parent;
     }
 
     // Update is called once per frame
