@@ -10,6 +10,7 @@ public class AffichageUI : MonoBehaviour
     public TextMeshProUGUI stoneDisplay;
     public TextMeshProUGUI foodDisplay;
     public TextMeshProUGUI residentDisplay;
+    public TextMeshProUGUI prosperityDisplay;
 
 
     // Start is called before the first frame update
@@ -27,5 +28,6 @@ public class AffichageUI : MonoBehaviour
         stoneDisplay.text = "Pierre : " + stone;
         foodDisplay.text = "Nourriture : " + food;
         residentDisplay.text = "Habitants : " + residents;
+
     }
 }
