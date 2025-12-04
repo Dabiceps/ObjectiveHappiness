@@ -22,15 +22,19 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public void StartJob()
     {
-        foreach (Transform building in buildings.transform)
+        foreach (Transform building in GameObject.Find("Buildings").transform)
         {
             if (building != null && building.tag == "Ecole")
             {
-
-                Debug.Log("Le villageois commence à aller à la ferme");
-                NavMeshAgent agent = GetComponent<NavMeshAgent>();
-                agent.SetDestination(building.position);
-                return;
+                Building building1 = building.GetComponent<Building>();
+                if (!building1.isUsed)
+                {
+                    Debug.Log("Le villageois se dirige vers l'école");
+                    NavMeshAgent agent = GetComponent<NavMeshAgent>();
+                    agent.SetDestination(building.position);
+                    building1.isUsed = true;
+                    return;
+                }
             }
         }
     }
@@ -44,16 +48,8 @@ public class Villager : MonoBehaviour, IJobInterface
     // Update is called once per frame
     void Update()
     {
-       GameManager.DayState state = GameManager.Instance.currentDayState;
-        switch (state)
-        {
-            case GameManager.DayState.Work:
-                DoJob();
-                break;
-            case GameManager.DayState.Night:
-                EndJob();
-                break;
-        }
+
+        
     }
 
 }

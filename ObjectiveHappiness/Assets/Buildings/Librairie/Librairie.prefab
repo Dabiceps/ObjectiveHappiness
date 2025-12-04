@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8413836129190491933}
   - component: {fileID: 8996292590699053992}
   - component: {fileID: 1129045274482435462}
+  - component: {fileID: 2275360910925425760}
   m_Layer: 0
   m_Name: Librairie
-  m_TagString: Untagged
+  m_TagString: Librairie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &2275360910925425760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249206136988829910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1f7654a29a3c148a9a279bd4f3426e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

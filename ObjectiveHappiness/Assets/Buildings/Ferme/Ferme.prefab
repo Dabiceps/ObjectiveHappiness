@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7555583587382583410}
   - component: {fileID: 874161365133597672}
   - component: {fileID: 8662178787943421759}
+  - component: {fileID: 4751052770717880918}
   m_Layer: 0
   m_Name: Ferme
-  m_TagString: Untagged
+  m_TagString: Ferme
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &4751052770717880918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501558789451409385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1f7654a29a3c148a9a279bd4f3426e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Villager
   - Ground
+  - Maison
+  - Ecole
+  - Musee
+  - Librairie
+  - Ferme
+  - Arbre
+  - Rocher
+  - Buisson
   layers:
   - Default
   - TransparentFX

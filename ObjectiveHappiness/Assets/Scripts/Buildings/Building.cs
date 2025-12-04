@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool isUsed { get; set; }
     void Start()
     {
-        
+        isUsed = false;
     }
 
     // Update is called once per frame

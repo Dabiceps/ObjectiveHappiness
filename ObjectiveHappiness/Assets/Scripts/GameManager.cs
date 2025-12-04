@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Debut du jeu");
         StartCoroutine(DayCoroutine());
+        
     }
 
     public IEnumerator DayCoroutine()

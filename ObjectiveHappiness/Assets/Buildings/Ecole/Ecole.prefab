@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2534492130833677678}
   - component: {fileID: 7645162023412583818}
   - component: {fileID: 9125678615173994670}
+  - component: {fileID: -1117683031017022862}
   m_Layer: 0
   m_Name: Ecole
-  m_TagString: Untagged
+  m_TagString: Ecole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-1117683031017022862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315569184663769053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1f7654a29a3c148a9a279bd4f3426e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

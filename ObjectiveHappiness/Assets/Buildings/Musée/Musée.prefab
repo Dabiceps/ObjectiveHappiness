@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4634819187971451694}
   - component: {fileID: 2470917208529704841}
   - component: {fileID: 4803338944397449906}
+  - component: {fileID: -4786649723948662173}
   m_Layer: 0
   m_Name: "Mus\xE9e"
-  m_TagString: Untagged
+  m_TagString: Musee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-4786649723948662173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937791359863073865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1f7654a29a3c148a9a279bd4f3426e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

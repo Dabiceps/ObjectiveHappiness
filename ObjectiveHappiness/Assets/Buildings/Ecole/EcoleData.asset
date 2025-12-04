@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae257894b1821c244a2560fe20a359c9, type: 3}
   m_Name: EcoleData
   m_EditorClassIdentifier: 
-  buildingName: 
-  prefab: {fileID: 0}
-  ghostPrefab: {fileID: 0}
+  buildingName: Ecole
+  prefab: {fileID: 4315569184663769053, guid: 5c27bd1d7a78ecd42be098fda253e8f0, type: 3}
+  ghostPrefab: {fileID: 2442178091710452097, guid: 194376c70fa2ef046adb3aaaaaaf5d35, type: 3}
   costWood: 0
   costStone: 0

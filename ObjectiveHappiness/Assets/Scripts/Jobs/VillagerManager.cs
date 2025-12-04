@@ -29,18 +29,14 @@ public class VillagerManager : MonoBehaviour
     {
         parent = GameObject.Find("Villagers");
         SpawnVillager();
+        CheckList();
+        StartWork();
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Transform child in parent.transform)
-        {
-            if (child != null && !villagers.Contains(child))
-            {
-                villagers.Add(child);
-            }
-        }
+        CheckList();
     }
 
     void EndWork()
@@ -72,6 +68,17 @@ public class VillagerManager : MonoBehaviour
         // Implementation for spawning a villager
         var instance = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+    }
+
+    void CheckList()
+    {
+        foreach (Transform child in parent.transform)
+        {
+            if (child != null && !villagers.Contains(child))
+            {
+                villagers.Add(child);
+            }
+        }
     }
 
 }
