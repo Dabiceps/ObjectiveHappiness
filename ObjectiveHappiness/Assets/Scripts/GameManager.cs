@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Début du jour " + currentDay);
         currentDayState = DayState.Work;
+        VillagerManager.Instance.StartWork();
         int FixTime = DayDurationInSeconds;
         while (FixTime > 0)
         {
@@ -68,8 +69,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DayCoroutine());
         yield return null;
     }
-
-
 
 
 }

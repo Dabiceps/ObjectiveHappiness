@@ -51,7 +51,7 @@ public class VillagerManager : MonoBehaviour
         }
     }
 
-    void StartWork()
+    public void StartWork()
     {
         foreach (Transform villager in villagers)
         {

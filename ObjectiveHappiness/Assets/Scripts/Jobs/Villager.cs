@@ -5,14 +5,14 @@ using UnityEngine.AI;
 
 public class Villager : MonoBehaviour, IJobInterface
 {
-    private GameObject buildings;
+    private Coroutine jobRoutine;
 
     public string JobName => "Villageois";
 
     public void DoJob()
     {
-        Debug.Log("Le villageois travaille.");
-        
+        //LOGIQUE DE LECOLE
+        this.gameObject.SetActive(false);
     }
 
     public void EndJob()
@@ -24,7 +24,7 @@ public class Villager : MonoBehaviour, IJobInterface
     {
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
-            if (building != null && building.tag == "Ecole")
+            if (building != null && building.CompareTag("Ecole"))
             {
                 Building building1 = building.GetComponent<Building>();
                 if (!building1.isUsed)
@@ -32,24 +32,33 @@ public class Villager : MonoBehaviour, IJobInterface
                     Debug.Log("Le villageois se dirige vers l'école");
                     NavMeshAgent agent = GetComponent<NavMeshAgent>();
                     agent.SetDestination(building.position);
+
                     building1.isUsed = true;
+
+                    if (jobRoutine != null) StopCoroutine(jobRoutine);
+                    jobRoutine = StartCoroutine(WaitUntilArrived());
+
                     return;
                 }
             }
         }
     }
 
-    // Start is called before the first frame update
+    private IEnumerator WaitUntilArrived()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        yield return new WaitUntil(() => !agent.pathPending);
+
+        yield return new WaitUntil(() =>
+            agent.remainingDistance <= agent.stoppingDistance &&
+            (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+        );
+
+        DoJob();
+    }
+
     void Start()
     {
-        buildings = BuildingManager.Instance.parent;
+
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        
-    }
-
 }

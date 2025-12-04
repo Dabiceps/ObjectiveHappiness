@@ -28,7 +28,7 @@ public class CameraControllerTopDown : MonoBehaviour
         HandleZoomHeightRotation();
     }
 
-    void HandleMovement()
+    void HandleMovement() 
     {
         Vector3 direction = Vector3.zero;
         Vector3 mousePos = Input.mousePosition;
