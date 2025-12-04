@@ -19,9 +19,9 @@ public class InGameTime : MonoBehaviour
 
     void Start()
     {
-        jour.text = "Jour : 0";
+        jour.text = "Jour : 1";
         heure.text = "Heure : 00:00";
-        intjour = 0;
+        intjour = 1;
         intheure = 0;
         globaltime = 0;
         temps = 0.5f;
