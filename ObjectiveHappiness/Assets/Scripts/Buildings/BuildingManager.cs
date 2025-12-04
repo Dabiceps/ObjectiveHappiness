@@ -96,7 +96,8 @@ public class BuildingManager : MonoBehaviour
 
         SpendResources(currentData);
 
-        Instantiate(currentData.prefab, pos, Quaternion.identity);
+        var instance = Instantiate(currentData.prefab, pos, Quaternion.identity);
+        instance.transform.SetParent(GameObject.Find("Buildings").transform, worldPositionStays: true);
 
         return true;
     }
