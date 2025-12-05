@@ -743,6 +743,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6949788685133100481, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 1490720288}
     - target: {fileID: 7380683691686344177, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -848,6 +852,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1623380769}
   m_SourcePrefab: {fileID: 100100000, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+--- !u!1 &1490720288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3116349900985948962, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+  m_PrefabInstance: {fileID: 1490720287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1547475739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1090,7 +1099,7 @@ PrefabInstance:
       objectReference: {fileID: 245861331}
     - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: food
-      value: 100
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: wood

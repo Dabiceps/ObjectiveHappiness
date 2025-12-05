@@ -9,6 +9,7 @@ public class GameOverUI : MonoBehaviour
     public GameObject residentsManager;
     public GameObject identityManager;
     public GameObject gameoverScreen;
+    public GameObject victoryScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class GameOverUI : MonoBehaviour
         residentsManager.SetActive(true);
         identityManager.SetActive(true);
         gameoverScreen.SetActive(false);
+        victoryScreen.SetActive(false);
     }
 
     public void GameOverVerification()
@@ -28,6 +30,18 @@ public class GameOverUI : MonoBehaviour
             residentsManager.SetActive(false);
             identityManager.SetActive(false);
             gameoverScreen.SetActive(true);
+        }
+    }
+
+    public void WinVerification()
+    {
+        if ( ResourceManager.Instance.prosperity >= 100)
+        {
+            buildManager.SetActive(false);
+            resourcesManager.SetActive(false);
+            residentsManager.SetActive(false);
+            identityManager.SetActive(false);
+            victoryScreen.SetActive(true);
         }
     }
 }

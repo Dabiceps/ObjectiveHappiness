@@ -41,13 +41,14 @@ public class ResourceManager : MonoBehaviour
             food = 0;
             residents /= 3;
             prosperity -= 3;
-            gameOverUI.GameOverVerification();
         }
         else
         {
             prosperity += residents*0.2f;
             residents *= 2;
         }
+        gameOverUI.GameOverVerification();
+        gameOverUI.WinVerification();
     }
 
     // Méthode qui calcul le nombre de ressources récupéré en fonction du type (food/wood/stone)
