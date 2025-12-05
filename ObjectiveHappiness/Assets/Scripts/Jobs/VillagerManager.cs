@@ -5,7 +5,8 @@ using UnityEngine;
 public class VillagerManager : MonoBehaviour
 {
     [Header("Villager Settings")]
-    public GameObject prefab;
+    public GameObject villager;
+    public GameObject lumberjack;
 
 
     public static VillagerManager Instance;
@@ -29,7 +30,14 @@ public class VillagerManager : MonoBehaviour
     {
         parent = GameObject.Find("Villagers");
         SpawnVillager();
+        SpawnLumberjack();
         CheckList();
+        
+    }
+
+    public IEnumerator JobCoroutine()
+    {
+        yield return new WaitForSeconds(10f);
         StartWork();
     }
 
@@ -63,11 +71,18 @@ public class VillagerManager : MonoBehaviour
         }
     }
 
-    void SpawnVillager()
+    public GameObject SpawnVillager()
     {
-        // Implementation for spawning a villager
-        var instance = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+        var instance = Instantiate(villager, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        return instance.gameObject;
+    }
+
+    public GameObject SpawnLumberjack()
+    {
+        var instance = Instantiate(lumberjack, new Vector3(0, 0, 0), Quaternion.identity);
+        instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        return instance.gameObject;
     }
 
     void CheckList()

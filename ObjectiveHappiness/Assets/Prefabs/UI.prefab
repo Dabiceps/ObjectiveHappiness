@@ -7489,7 +7489,7 @@ MonoBehaviour:
   residentsManager: {fileID: 1727279617131216075}
   identityManager: {fileID: 6204332004834234003}
   gameoverScreen: {fileID: 7095388972174311418}
-  victoryScreen: {fileID: 0}
+  victoryScreen: {fileID: 3116349900985948962}
 --- !u!1 &8266381233768720457
 GameObject:
   m_ObjectHideFlags: 0

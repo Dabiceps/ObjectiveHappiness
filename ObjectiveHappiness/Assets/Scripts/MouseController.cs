@@ -21,20 +21,9 @@ public class MouseController : MonoBehaviour
                 {
                     case "Villager":
                         currentObject = hit.collider.gameObject;
+                        OpenVillagerMenu();
                         break;
                     case "Ground":
-                        if(currentObject != null)
-                        {
-                            if(currentObject.TryGetComponent<NavMeshAgent>(out currentAgent))
-                            {
-                                currentAgent.SetDestination(hit.point);
-                                currentObject = null;
-                            }
-                            else
-                            {
-                                currentObject = null;
-                            }
-                        }
                         break;
                     case "Building":
                         Debug.Log("Building clicked: " + hit.collider.name);
@@ -45,5 +34,11 @@ public class MouseController : MonoBehaviour
                 }
             }
        }
+
+       void OpenVillagerMenu()
+       {
+            // Implementation for opening villager menu
+       }
+
     }
 }

@@ -6,16 +6,17 @@ using UnityEngine.AI;
 public class Villager : MonoBehaviour, IJobInterface
 {
     private Coroutine jobRoutine;
+    Lumberjack lumberjack;
+    public string JobName { get; set; }
+    public string JobTarget { get; set; }
 
-    public string JobName => "Villageois";
-
-    public void DoJob()
+    public virtual void DoJob()
     {
         //LOGIQUE DE LECOLE
         this.gameObject.SetActive(false);
     }
 
-    public void EndJob()
+    public virtual void EndJob()
     {
         this.gameObject.SetActive(true);
         foreach (Transform building in GameObject.Find("Buildings").transform)
@@ -25,7 +26,7 @@ public class Villager : MonoBehaviour, IJobInterface
                 Building building1 = building.GetComponent<Building>();
                 if (!building1.isUsed)
                 {
-                    Debug.Log("Le villageois se dirige vers la maison");
+                    Debug.Log("Le " + JobName + " se dirige vers la maison");
                     NavMeshAgent agent = GetComponent<NavMeshAgent>();
                     agent.SetDestination(building.position);
 
@@ -40,16 +41,16 @@ public class Villager : MonoBehaviour, IJobInterface
         }
     }
 
-    public void StartJob()
+    public virtual void StartJob()
     {
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
-            if (building != null && building.CompareTag("Ecole"))
+            if (building != null && building.CompareTag(JobTarget))
             {
                 Building building1 = building.GetComponent<Building>();
                 if (!building1.isUsed)
                 {
-                    Debug.Log("Le villageois se dirige vers l'école");
+                    Debug.Log("Le " + JobName +" se dirige vers le " + JobTarget);
                     NavMeshAgent agent = GetComponent<NavMeshAgent>();
                     agent.SetDestination(building.position);
 
@@ -64,7 +65,7 @@ public class Villager : MonoBehaviour, IJobInterface
         }
     }
 
-    private IEnumerator WaitUntilArrived()
+    public virtual IEnumerator WaitUntilArrived()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         yield return new WaitUntil(() => !agent.pathPending);
@@ -78,8 +79,19 @@ public class Villager : MonoBehaviour, IJobInterface
         else
             DoSleep();
     }
-    public void DoSleep()
+    public virtual void DoSleep()
     {
         Debug.Log("Le villageois dort");
+    }
+
+    public virtual void TransformIntoLumberjack()
+    {
+        this.gameObject.AddComponent<Lumberjack>();
+        this.gameObject.GetComponent<Villager>().enabled = false;
+    }
+    void Awake()
+    {
+        JobName = "Villageois";
+        JobTarget = "Ecole";
     }
 }

@@ -54,6 +54,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   maxPlacementDistance: 100
+  parent: {fileID: 0}
 --- !u!114 &1876255501839555154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,8 +67,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00ff9d3c791e0c4992645a075f6dbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 0}
+  gameOverUI: {fileID: 0}
   wood: 100
   stone: 100
+  food: 0
+  residents: 0
+  prosperity: 0
 --- !u!114 &1637655590979129000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,4 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7da247def8a17c4c8da7b1f20ca4ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1768795173785298991, guid: bfb1917033cb802478acef78de71e08f, type: 3}
+  villager: {fileID: 467444645381630028, guid: f79e15a71ca50cd438079a1cbe5e2ec5, type: 3}
+  lumberjack: {fileID: 3547666376383632131, guid: 048ee0ca481336b4895775990c91545f, type: 3}

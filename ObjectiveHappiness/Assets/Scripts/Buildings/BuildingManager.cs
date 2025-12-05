@@ -74,6 +74,17 @@ public class BuildingManager : MonoBehaviour
 
             SetGhostColor(valid ? Color.green : Color.red);
         }
+
+        if (Input.GetMouseButton(1))
+        {
+            CancelPlacement();
+        }
+
+        if (Input.GetMouseButton(2))
+        {
+            currentGhost.transform.Rotate(Vector3.up, 1f);
+        }
+
     }
 
     void HandlePlacementInput()
