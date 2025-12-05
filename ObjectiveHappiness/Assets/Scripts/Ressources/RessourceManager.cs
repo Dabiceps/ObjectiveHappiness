@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
     public AffichageUI UI;
+    public GameOverUI gameOverUI;
 
     public int wood;
     public int stone;
@@ -39,7 +41,7 @@ public class ResourceManager : MonoBehaviour
             food = 0;
             residents /= 3;
             prosperity -= 3;
-            GenocideVerification();
+            gameOverUI.GameOverVerification();
         }
         else
         {
@@ -67,15 +69,6 @@ public class ResourceManager : MonoBehaviour
         else
         {
             stone++;
-        }
-    }
-
-    // Méthode qui verifie si la partie est finie par un game over
-    void GenocideVerification()
-    {
-        if (residents <= 2)
-        {
-            Console.WriteLine("Génocide -> Game Over");
         }
     }
 }
