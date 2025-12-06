@@ -1031,9 +1031,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buildings
       objectReference: {fileID: 0}
+    - target: {fileID: 1606772873613579566, guid: 0fab40e5f7da6084a92289ae83fd2357, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606772873613579566, guid: 0fab40e5f7da6084a92289ae83fd2357, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 68.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606772873613579566, guid: 0fab40e5f7da6084a92289ae83fd2357, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -82.77
+      objectReference: {fileID: 0}
     - target: {fileID: 6094713992100806072, guid: 0fab40e5f7da6084a92289ae83fd2357, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.07
+      value: -15.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094713992100806072, guid: 0fab40e5f7da6084a92289ae83fd2357, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -71.17
       objectReference: {fileID: 0}
     - target: {fileID: 6910025797853420660, guid: 0fab40e5f7da6084a92289ae83fd2357, type: 3}
       propertyPath: m_LocalPosition.x

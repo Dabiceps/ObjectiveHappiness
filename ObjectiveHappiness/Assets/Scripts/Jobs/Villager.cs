@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Villager : MonoBehaviour, IJobInterface
 {
     private Coroutine jobRoutine;
-    Lumberjack lumberjack;
     public string JobName { get; set; }
     public string JobTarget { get; set; }
 
