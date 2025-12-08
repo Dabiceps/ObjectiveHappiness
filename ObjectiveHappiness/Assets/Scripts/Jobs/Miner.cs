@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Miner : Villager
 {
+    public ResourceManager ResourceManager;
+
     void Awake()
     {
         Debug.Log("Le bûcheron est prêt");
