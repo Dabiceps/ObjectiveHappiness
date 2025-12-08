@@ -40,13 +40,8 @@ public class ResourceManager : MonoBehaviour
         {
             food = 0;
             residents /= 3;
-            prosperity -= 3;
         }
-        else
-        {
-            prosperity += residents*0.2f;
-            residents *= 2;
-        }
+        ProsperityModifiers();
         gameOverUI.GameOverVerification();
         gameOverUI.WinVerification();
     }
@@ -71,5 +66,20 @@ public class ResourceManager : MonoBehaviour
         {
             stone++;
         }
+    }
+
+    // Modification de la prospérité en fonction des éléments présents dans le jeu
+    public void ProsperityModifiers()
+    {
+        float bonus = 0.2f; // bonus = 0.2f + (NbrLibraire*0.1) + (NbrMusee*0.2)
+        if (food < 0)
+        {
+            prosperity -= prosperity*0.05f;
+        }
+        else
+        {
+            prosperity += (residents * bonus);
+        }
+
     }
 }
