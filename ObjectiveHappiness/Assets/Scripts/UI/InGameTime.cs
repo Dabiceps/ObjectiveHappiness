@@ -15,7 +15,8 @@ public class InGameTime : MonoBehaviour
     public Button resume;
     public Button x2;
     public Button x3;
-    bool isPaused = false;
+    public Button start;
+    bool isPaused = true;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class InGameTime : MonoBehaviour
         globaltime = 0;
         temps = 0.5f;
 
+        start.onClick.AddListener(() => isPaused = false);
         pause.onClick.AddListener(() => isPaused = true);
         resume.onClick.AddListener(() => isPaused = false);
         resume.onClick.AddListener(() => temps = 0.3f);
