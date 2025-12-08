@@ -68,6 +68,11 @@ public class VillagerManager : MonoBehaviour
                 jobInterface.StartJob();
             }
         }
+        foreach (Transform building in GameObject.Find("Buildings").transform)
+        {
+            Building building1 = building.GetComponent<Building>();
+            building1.isUsed = false;
+        }
     }
 
     public GameObject SpawnVillager()

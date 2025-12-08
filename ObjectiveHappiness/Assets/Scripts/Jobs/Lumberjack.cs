@@ -19,12 +19,10 @@ public class Lumberjack : Villager
     public override void StartJob()
     {
         base.StartJob();
-        Debug.Log("Le bûcheron commence son travail");
     }
 
     public override void DoJob()
     {
-        Debug.Log("Le bûcheron coupe du bois");
     }
 
 }

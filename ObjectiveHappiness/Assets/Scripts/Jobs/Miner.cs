@@ -13,10 +13,9 @@ public class Miner : Villager
     public override void StartJob()
     {
         base.StartJob();
-        Debug.Log("Le mineur commence son travail");
+
     }
     public override void DoJob()
     {
-        Debug.Log("Le mineur extrait du minerai");
     }
 }

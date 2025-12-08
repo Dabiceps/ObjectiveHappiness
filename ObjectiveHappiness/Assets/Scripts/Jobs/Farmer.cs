@@ -13,12 +13,12 @@ public class Farmer : Villager
     public override void StartJob()
     {
         base.StartJob();
-        Debug.Log("Le fermier commence son travail");
+
     }
 
     public override void DoJob()
     {
-        Debug.Log("Le fermier récolte des cultures");
+
     }
 
 }
