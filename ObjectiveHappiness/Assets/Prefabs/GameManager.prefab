@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostHeightOffset: 0.5
   navMeshSurface: {fileID: 0}
+  constructionSitePrefab: {fileID: 6548593111137344478, guid: 41885863cab2cff45b08ea357f177371, type: 3}
   buildableLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -116,3 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   villager: {fileID: 467444645381630028, guid: f79e15a71ca50cd438079a1cbe5e2ec5, type: 3}
   lumberjack: {fileID: 3547666376383632131, guid: 048ee0ca481336b4895775990c91545f, type: 3}
+  miner: {fileID: 4804715117251475786, guid: e00165f2475e249489972032d6ca0cf2, type: 3}
+  farmer: {fileID: 3451042669723255909, guid: 90f8296e832fb924b9af2463a0543d80, type: 3}
+  mason: {fileID: 6882973728606531562, guid: 838b5783e84e8a14c9526e6d4af6bca7, type: 3}

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Ecole
   prefab: {fileID: 4315569184663769053, guid: 5c27bd1d7a78ecd42be098fda253e8f0, type: 3}
-  ghostPrefab: {fileID: 2442178091710452097, guid: 194376c70fa2ef046adb3aaaaaaf5d35, type: 3}
+  ghostPrefab: {fileID: 4996488106039371952, guid: 81b41d09505fa784388ed14a111a8f84, type: 3}
   costWood: 0
   costStone: 0

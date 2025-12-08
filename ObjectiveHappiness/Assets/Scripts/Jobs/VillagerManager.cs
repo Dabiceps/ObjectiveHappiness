@@ -5,11 +5,12 @@ using UnityEngine.VFX;
 
 public class VillagerManager : MonoBehaviour
 {
-    [Header("Villager Settings")]
+    [Header("Villager Prefabs")]
     public GameObject villager;
     public GameObject lumberjack;
     public GameObject miner;
     public GameObject farmer;
+    public GameObject mason;
 
 
     public static VillagerManager Instance;
@@ -36,6 +37,7 @@ public class VillagerManager : MonoBehaviour
         SpawnMiner();
         SpawnLumberjack();
         SpawnFarmer();
+        SpawnMason();
         CheckList();
         
     }
@@ -99,6 +101,13 @@ public class VillagerManager : MonoBehaviour
     public GameObject SpawnFarmer()
     {
         var instance = Instantiate(farmer, new Vector3(0, 0, 0), Quaternion.identity);
+        instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        return instance.gameObject;
+    }
+
+    public GameObject SpawnMason()
+    {
+        var instance = Instantiate(mason, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
         return instance.gameObject;
     }

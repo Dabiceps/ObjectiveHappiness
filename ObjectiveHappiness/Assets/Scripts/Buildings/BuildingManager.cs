@@ -11,6 +11,9 @@ public class BuildingManager : MonoBehaviour
     public float ghostHeightOffset = 0.5f; // distance au-dessus du sol
     public NavMeshSurface navMeshSurface;
 
+    [Header("Construction site")]
+    public GameObject constructionSitePrefab;
+
     public LayerMask buildableLayer;
     public float maxPlacementDistance = 100f;
 
@@ -115,8 +118,13 @@ public class BuildingManager : MonoBehaviour
 
         SpendResources(currentData);
 
-        var instance = Instantiate(currentData.prefab, pos, rot);
-        instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        // On instancie un chantier
+        var site = Instantiate(constructionSitePrefab, pos, rot);
+        site.transform.SetParent(parent.transform, worldPositionStays: true);
+
+        // On renseigne quel bâtiment sera construit
+        ConstructionSite cs = site.GetComponent<ConstructionSite>();
+        cs.buildingData = currentData;
 
         return true;
     }

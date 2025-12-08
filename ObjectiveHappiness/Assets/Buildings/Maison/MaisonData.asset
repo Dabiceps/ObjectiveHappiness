@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Maison
   prefab: {fileID: 7970756486107012149, guid: 1027993351f7fab41aa5e3ac65258865, type: 3}
-  ghostPrefab: {fileID: 1185089342760966609, guid: a324319b9fb18e34ba6902d2e95bc2c5, type: 3}
+  ghostPrefab: {fileID: 8562981065297062096, guid: 085960a4a51dab54993643daf7160fea, type: 3}
   costWood: 0
   costStone: 0

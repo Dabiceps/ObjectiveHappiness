@@ -92,7 +92,7 @@ public class Villager : MonoBehaviour, IJobInterface
         JobRoutine = StartCoroutine(WanderRoutine());
     }
 
-    private IEnumerator WanderRoutine()
+    public IEnumerator WanderRoutine()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
 

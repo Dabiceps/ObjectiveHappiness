@@ -21,7 +21,7 @@ public class MouseController : MonoBehaviour
                 {
                     case "Villager":
                         currentObject = hit.collider.gameObject;
-                        OpenVillagerMenu();
+                        OpenVillagerMenu(currentObject);
                         break;
                     case "Ground":
                         break;
@@ -35,10 +35,10 @@ public class MouseController : MonoBehaviour
             }
        }
 
-       void OpenVillagerMenu()
+       void OpenVillagerMenu(GameObject gameobject)
        {
-            // Implementation for opening villager menu
-       }
+            IJobInterface jobInterface = gameobject.GetComponent<IJobInterface>();
+        }
 
     }
 }

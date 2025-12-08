@@ -82,4 +82,19 @@ public class ResourceManager : MonoBehaviour
         }
 
     }
+
+    public int CountBuilding (string tag)
+    {
+        int count = 0;
+        foreach (Transform building in GameObject.Find("Buildings").transform)
+        {
+            if (building != null && building.CompareTag(tag))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
 }

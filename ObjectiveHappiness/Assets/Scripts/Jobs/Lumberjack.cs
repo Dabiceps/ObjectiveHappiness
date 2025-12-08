@@ -23,6 +23,7 @@ public class Lumberjack : Villager
 
     public override void DoJob()
     {
+
     }
 
 }
