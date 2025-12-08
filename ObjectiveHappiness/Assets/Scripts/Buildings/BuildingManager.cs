@@ -108,13 +108,14 @@ public class BuildingManager : MonoBehaviour
     bool TryPlaceBuilding()
     {
         Vector3 pos = currentGhost.transform.position;
+        Quaternion rot = currentGhost.transform.rotation;
 
         if (!IsPlacementValid(pos))
             return false;
 
         SpendResources(currentData);
 
-        var instance = Instantiate(currentData.prefab, pos, Quaternion.identity);
+        var instance = Instantiate(currentData.prefab, pos, rot);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
 
         return true;

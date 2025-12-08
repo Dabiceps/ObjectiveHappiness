@@ -2,27 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lumberjack : Villager
+public class Farmer : Villager
 {
-
-    void Awake()
+    private void Awake()
     {
-        Debug.Log("Le bûcheron est prêt");
-        JobName = "Bûcheron";
-        JobTarget = "Arbre";
-    }
-    void Update()
-    {
-        
-    }
+        JobName = "Farmer";
+        JobTarget = "Buisson";
 
+    }
     public override void StartJob()
     {
         base.StartJob();
+
     }
 
     public override void DoJob()
     {
+
     }
 
 }

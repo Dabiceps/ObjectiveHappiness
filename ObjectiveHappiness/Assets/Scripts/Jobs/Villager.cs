@@ -1,14 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Villager : MonoBehaviour, IJobInterface
 {
-    private Coroutine jobRoutine;
-    Lumberjack lumberjack;
     public string JobName { get; set; }
     public string JobTarget { get; set; }
+    public Coroutine JobRoutine { get; set; }
 
     public virtual void DoJob()
     {
@@ -26,23 +25,24 @@ public class Villager : MonoBehaviour, IJobInterface
                 Building building1 = building.GetComponent<Building>();
                 if (!building1.isUsed)
                 {
-                    Debug.Log("Le " + JobName + " se dirige vers la maison");
                     NavMeshAgent agent = GetComponent<NavMeshAgent>();
                     agent.SetDestination(building.position);
 
                     building1.isUsed = true;
 
-                    if (jobRoutine != null) StopCoroutine(jobRoutine);
-                    jobRoutine = StartCoroutine(WaitUntilArrived());
+                    if (JobRoutine != null) StopCoroutine(JobRoutine);
+                    JobRoutine = StartCoroutine(WaitUntilArrived());
 
                     return;
                 }
             }
         }
+        Vagabonder();
     }
 
     public virtual void StartJob()
     {
+        if (JobRoutine != null) StopCoroutine(JobRoutine);
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
             if (building != null && building.CompareTag(JobTarget))
@@ -50,14 +50,13 @@ public class Villager : MonoBehaviour, IJobInterface
                 Building building1 = building.GetComponent<Building>();
                 if (!building1.isUsed)
                 {
-                    Debug.Log("Le " + JobName +" se dirige vers le " + JobTarget);
                     NavMeshAgent agent = GetComponent<NavMeshAgent>();
                     agent.SetDestination(building.position);
 
                     building1.isUsed = true;
 
-                    if (jobRoutine != null) StopCoroutine(jobRoutine);
-                    jobRoutine = StartCoroutine(WaitUntilArrived());
+                    if (JobRoutine != null) StopCoroutine(JobRoutine);
+                    JobRoutine = StartCoroutine(WaitUntilArrived());
 
                     return;
                 }
@@ -78,17 +77,69 @@ public class Villager : MonoBehaviour, IJobInterface
             DoJob();
         else
             DoSleep();
+        yield return null;
     }
     public virtual void DoSleep()
     {
         Debug.Log("Le villageois dort");
     }
 
-    public virtual void TransformIntoLumberjack()
+    public void Vagabonder()
     {
-        this.gameObject.AddComponent<Lumberjack>();
-        this.gameObject.GetComponent<Villager>().enabled = false;
+        // On stoppe toute autre routine de déplacement
+        if (JobRoutine != null) StopCoroutine(JobRoutine);
+
+        JobRoutine = StartCoroutine(WanderRoutine());
     }
+
+    private IEnumerator WanderRoutine()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+
+        while (GameManager.Instance.currentDayState != GameManager.DayState.Work)
+        {
+            Vector3 randomPoint;
+
+            // On cherche une position aléatoire valide sur la NavMesh
+            if (RandomPointOnNavMesh(transform.position, 15f, out randomPoint))
+            {
+                agent.SetDestination(randomPoint);
+
+                // Attendre d'arriver à la destination
+                yield return new WaitUntil(() =>
+                    !agent.pathPending &&
+                    agent.remainingDistance <= agent.stoppingDistance &&
+                    (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                );
+            }
+
+            // Petite pause avant de choisir un autre point
+            yield return new WaitForSeconds(1f);
+        } 
+    }
+
+    /// Génère un point aléatoire sur la NavMesh.
+    private bool RandomPointOnNavMesh(Vector3 center, float range, out Vector3 result)
+    {
+        for (int i = 0; i < 30; i++) // plusieurs essais si nécessaire
+        {
+            Vector3 randomPos = center + Random.insideUnitSphere * range;
+            NavMeshHit hit;
+
+            if (NavMesh.SamplePosition(randomPos, out hit, 2f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return true;
+            }
+        }
+
+        result = center;
+        return false;
+    }
+
+
+
+
     void Awake()
     {
         JobName = "Villageois";

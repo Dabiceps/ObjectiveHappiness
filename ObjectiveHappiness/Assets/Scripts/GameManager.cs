@@ -59,13 +59,15 @@ public class GameManager : MonoBehaviour
             
         }
         currentDayState = DayState.Night;
+        Debug.Log("Début de la nuit " + currentDay);
+        VillagerManager.Instance.StartNight();
         int FixNightTime = NightDurationInSeconds;
         while (FixNightTime > 0)
         {
             yield return new WaitForSeconds(1f);
             FixNightTime--;
         }
-        VillagerManager.Instance.StartNight();
+        
         currentDay++;
         StartCoroutine(DayCoroutine());
         yield return null;
