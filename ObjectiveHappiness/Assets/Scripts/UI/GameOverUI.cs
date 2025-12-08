@@ -6,7 +6,6 @@ public class GameOverUI : MonoBehaviour
 {
     public GameObject buildManager;
     public GameObject resourcesManager;
-    public GameObject residentsManager;
     public GameObject identityManager;
     public GameObject gameoverScreen;
     public GameObject victoryScreen;
@@ -15,7 +14,6 @@ public class GameOverUI : MonoBehaviour
     {
         buildManager.SetActive(true);
         resourcesManager.SetActive(true);
-        residentsManager.SetActive(true);
         identityManager.SetActive(true);
         gameoverScreen.SetActive(false);
         victoryScreen.SetActive(false);
@@ -27,7 +25,6 @@ public class GameOverUI : MonoBehaviour
         {
             buildManager.SetActive(false);
             resourcesManager.SetActive(false);
-            residentsManager.SetActive(false);
             identityManager.SetActive(false);
             gameoverScreen.SetActive(true);
         }
@@ -39,7 +36,6 @@ public class GameOverUI : MonoBehaviour
         {
             buildManager.SetActive(false);
             resourcesManager.SetActive(false);
-            residentsManager.SetActive(false);
             identityManager.SetActive(false);
             victoryScreen.SetActive(true);
         }

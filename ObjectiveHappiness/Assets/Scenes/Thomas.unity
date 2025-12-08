@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &219047797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6949788685133100481, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+  m_PrefabInstance: {fileID: 1490720287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62af7ba9a3c065d45ad2df22ec397736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &245861331 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5946953542907465109, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
@@ -1002,6 +1013,26 @@ PrefabInstance:
       propertyPath: UI
       value: 
       objectReference: {fileID: 245861331}
+    - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
+      propertyPath: food
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
+      propertyPath: wood
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
+      propertyPath: stone
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
+      propertyPath: residents
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 219047797}
     - target: {fileID: 6679997446547093190, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: m_Name
       value: GameManager

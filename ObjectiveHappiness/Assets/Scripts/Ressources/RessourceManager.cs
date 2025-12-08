@@ -72,14 +72,13 @@ public class ResourceManager : MonoBehaviour
     // Modification de la prospérité en fonction des éléments présents dans le jeu
     public void ProsperityModifiers()
     {
-        float bonus = 0.2f; // bonus = 0.2f + (NbrLibraire*0.1) + (NbrMusee*0.2)
         if (food < 0)
         {
             prosperity -= prosperity*0.05f;
         }
         else
         {
-            prosperity += (residents * bonus);
+            prosperity += (residents * 0.2f); // (0.2f + (NbrLibraire*0.1) + (NbrMusee*0.2))
         }
 
     }
