@@ -230,6 +230,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: e2de44ec74552b444a27da29fcaa42f1, type: 2}
+--- !u!1 &689229635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 206231093622307704, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+  m_PrefabInstance: {fileID: 1490720287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369800588016327373, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6402446614144001906, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
       propertyPath: m_AnchorMax.y
@@ -739,6 +744,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6949788685133100481, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+      propertyPath: buildButton
+      value: 
+      objectReference: {fileID: 689229635}
     - target: {fileID: 7380683691686344177, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
