@@ -57,9 +57,15 @@ public class InGameTime : MonoBehaviour
                 jour.text = "Jour : " + intjour;
                 heure.text = "Heure : " + (intheure / 60).ToString("00") + ":" + (intheure % 60).ToString("00");
                 globaltime++;
+                // Pour utiliser globaltime il faut initialiser un temps de base puis soustraire le global time actuel par ce temps de base 
+                // basetime = globaltime
+                // if (globaltime - basetime == 60) {action}
+                // (Effectue une action au bout de 1 heures ingame)
+                // Peut être utiliser pour la fatigue, la reconversion, les ressources ou la construction de batiments
             }
 
             yield return new WaitForSeconds(temps);
         }
     }
+    public int GetGlobalTime() { return globaltime; }
 }
