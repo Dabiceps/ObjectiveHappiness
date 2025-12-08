@@ -57,7 +57,7 @@ public class ResourceManager : MonoBehaviour
         //Calcul la nourriture récupérée en fonction du nombre de ferme
         if (type == "food")
         {
-            food = food + 1;  //+ (1* nbrferme);
+            food = food + 1* CountBuilding("Ferme");
         }
         if (type == "wood")
         {
@@ -72,14 +72,29 @@ public class ResourceManager : MonoBehaviour
     // Modification de la prospérité en fonction des éléments présents dans le jeu
     public void ProsperityModifiers()
     {
+        int nbrlibrairie = CountBuilding("Librairie");
+        int nbrmusee = CountBuilding("Musee");
         if (food < 0)
         {
             prosperity -= prosperity*0.05f;
         }
         else
         {
-            prosperity += (residents * 0.2f); // (0.2f + (NbrLibraire*0.1) + (NbrMusee*0.2))
+            prosperity += residents * (0.2f + nbrlibrairie*0.1f + nbrmusee*0.2f);
         }
 
+    }
+
+    public int CountBuilding(string tag)
+    {
+        int count = 0;
+        foreach (Transform building in GameObject.Find("Buildings").transform)
+        {
+            if (building != null && building.CompareTag(tag))
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }
