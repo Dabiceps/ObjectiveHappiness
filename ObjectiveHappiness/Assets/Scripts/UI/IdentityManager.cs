@@ -32,7 +32,7 @@ public class IdentityManager : MonoBehaviour
 
     public void IdentitePerso(string IDpseudo, string IDjob, int IDage, bool IDvagabon, string IDaction, int IDenergie)
     {
-        pseudo.text = "IDpseudo";
+        pseudo.text = IDpseudo;
         job.text = IDjob;
         age.text = IDage.ToString() + " ans";
         vagabon.text = "Vagabon : " + IDvagabon.ToString();
