@@ -8,6 +8,7 @@ public class Villager : MonoBehaviour, IJobInterface
     public string JobName { get; set; }
     public string JobTarget { get; set; }
     public Coroutine JobRoutine { get; set; }
+    public string Name { get; set; }
 
     public virtual void DoJob()
     {

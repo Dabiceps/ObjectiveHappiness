@@ -3,6 +3,7 @@ using UnityEngine;
 public interface IJobInterface
 {
     string JobName { get; }
+    string Name { get; set; }
     Coroutine JobRoutine { get; set; }
 
     // Appelé au début de la journée pour assigner le travail
