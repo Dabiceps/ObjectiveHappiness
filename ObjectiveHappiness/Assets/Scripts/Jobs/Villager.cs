@@ -5,10 +5,16 @@ using UnityEngine.AI;
 
 public class Villager : MonoBehaviour, IJobInterface
 {
-    public string JobName { get; set; }
+    
     public string JobTarget { get; set; }
     public Coroutine JobRoutine { get; set; }
-    public string Name { get; set; }
+
+    public string JobName { get; set; }
+    public string pseudo { get; set; }
+    public int age { get; set; }
+    public bool vagabond { get; set; }
+    public string actionText { get; set; }
+    public int energy { get; set; }
 
     public virtual void DoJob()
     {
@@ -156,5 +162,15 @@ public class Villager : MonoBehaviour, IJobInterface
     {
         JobName = "Villageois";
         JobTarget = "Ecole";
+    }
+
+    public void InitializeIdentity(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
+    {
+        pseudo = pseudo;
+        age = age;
+        vagabond = vagabon;
+        actionText = action;
+        energy = energy;
+        JobName = jobname;
     }
 }

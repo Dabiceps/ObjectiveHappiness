@@ -19,7 +19,7 @@ public class InGameTime : MonoBehaviour
     public Button x3;
     public Button start;
     bool isPaused = true;
-    
+    public int workTime;
 
     private void Awake()
     {
