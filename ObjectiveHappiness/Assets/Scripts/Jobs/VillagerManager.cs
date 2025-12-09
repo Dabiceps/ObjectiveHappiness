@@ -35,9 +35,9 @@ public class VillagerManager : MonoBehaviour
         parent = GameObject.Find("Villagers");
         SpawnVillager();
         SpawnMiner();
-        SpawnLumberjack();
-        SpawnFarmer();
-        SpawnMason();
+        //SpawnLumberjack();
+        //SpawnFarmer();
+        //SpawnMason();
         CheckList();
         
     }

@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         Debug.Log("Debut du jeu");
-        StartCoroutine(DayCoroutine());
+        //StartCoroutine(DayCoroutine());
         
     }
 

@@ -12,13 +12,12 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public virtual void DoJob()
     {
-        //LOGIQUE DE LECOLE
-        this.gameObject.SetActive(false);
+
     }
 
     public virtual void EndJob()
     {
-        this.gameObject.SetActive(true);
+        Debug.Log("Job ended");
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
             if (building != null && building.CompareTag("Maison"))
@@ -43,6 +42,7 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public virtual void StartJob()
     {
+        Debug.Log("Job started");
         if (JobRoutine != null) StopCoroutine(JobRoutine);
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
@@ -74,12 +74,22 @@ public class Villager : MonoBehaviour, IJobInterface
             agent.remainingDistance <= agent.stoppingDistance &&
             (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
         );
-        if(GameManager.Instance.currentDayState == GameManager.DayState.Work)
-            DoJob();
+        if(InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
+            StartCoroutine(WorkLoop());
         else
             DoSleep();
         yield return null;
     }
+
+    public virtual IEnumerator WorkLoop()
+    {
+        while (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
+        {
+            DoJob();
+            yield return new WaitForSeconds(1f); // rythme de travail
+        }
+    }
+
     public virtual void DoSleep()
     {
         Debug.Log("Le villageois dort");
@@ -95,9 +105,10 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public IEnumerator WanderRoutine()
     {
+        Debug.Log("Le villageois vagabonde");
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
 
-        while (GameManager.Instance.currentDayState != GameManager.DayState.Work)
+        while (true)
         {
             Vector3 randomPoint;
 

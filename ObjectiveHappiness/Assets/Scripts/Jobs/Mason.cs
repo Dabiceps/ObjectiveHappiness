@@ -63,7 +63,7 @@ public class Mason : Villager
             yield return null;
         }
 
-    IEnumerator WorkLoop()
+    public override IEnumerator WorkLoop()
     {
         while (GameManager.Instance.currentDayState == GameManager.DayState.Work)
         {
