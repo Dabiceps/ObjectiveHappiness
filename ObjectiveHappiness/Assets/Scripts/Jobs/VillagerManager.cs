@@ -14,7 +14,7 @@ public class VillagerManager : MonoBehaviour
 
 
     public static VillagerManager Instance;
-    private List<Transform> villagers = new List<Transform>();
+    public List<Transform> villagers = new List<Transform>();
     GameObject parent;
 
 

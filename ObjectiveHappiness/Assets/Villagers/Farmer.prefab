@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4358214917681399454}
   - component: {fileID: 1149436167200611156}
   - component: {fileID: 4795597989593865615}
+  - component: {fileID: 5324171191180017239}
   m_Layer: 6
   m_Name: Farmer
   m_TagString: Villager
@@ -143,3 +144,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52adabfdd787db4783ff4fb2132a825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5324171191180017239
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451042669723255909}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

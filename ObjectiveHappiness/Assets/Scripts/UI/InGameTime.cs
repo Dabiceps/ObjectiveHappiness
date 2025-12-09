@@ -19,7 +19,7 @@ public class InGameTime : MonoBehaviour
     public Button x3;
     public Button start;
     bool isPaused = true;
-    public int workTime;
+    public float workTime = 10f;
 
     private void Awake()
     {
@@ -41,16 +41,45 @@ public class InGameTime : MonoBehaviour
         globaltime = 0;
         temps = 0.5f;
 
-        start.onClick.AddListener(() => isPaused = false);
-        pause.onClick.AddListener(() => isPaused = true);
-        resume.onClick.AddListener(() => isPaused = false);
-        resume.onClick.AddListener(() => temps = 0.3f);
-        x2.onClick.AddListener(() => isPaused = false);
-        x2.onClick.AddListener(() => temps = 0.15f);
-        x3.onClick.AddListener(() => isPaused = false);
-        x3.onClick.AddListener(() => temps = 0.005f);
-        
+        start.onClick.AddListener(() => StartGame());
+        pause.onClick.AddListener(() => OnPauseClick());
+        resume.onClick.AddListener(() => OnResumeClick());
+        x2.onClick.AddListener(() => OnX2Click());
+        x3.onClick.AddListener(() => OnX3Click());
+    }
+
+    public void StartGame()
+    {
+        isPaused = false;
         StartCoroutine(TimeLoop());
+    }
+
+    void OnPauseClick()
+    {
+        isPaused = true;
+        SetVillagerSpeed(0f);
+    }
+    void OnResumeClick()
+    {
+        isPaused = false;
+        temps = 0.3f;
+        workTime = 10f;
+        SetVillagerSpeed(1f);
+    }
+    void OnX2Click()
+    {
+        isPaused = false;
+        temps = 0.15f;
+        workTime = 10f;
+        SetVillagerSpeed(2f);
+    }
+
+    void OnX3Click()
+    {
+        isPaused = false;
+        temps = 0.005f;
+        workTime = 10f;
+        SetVillagerSpeed(3f);
     }
 
     IEnumerator TimeLoop()
@@ -92,4 +121,14 @@ public class InGameTime : MonoBehaviour
         }
     }
     public int GetGlobalTime() { return globaltime; }
+
+    void SetVillagerSpeed(float speed)
+    {
+        foreach (Transform villager in VillagerManager.Instance.villagers)
+        {
+            villager.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = speed;
+        }
+    }
+
+
 }

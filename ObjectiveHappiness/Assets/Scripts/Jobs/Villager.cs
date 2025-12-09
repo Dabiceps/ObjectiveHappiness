@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,11 +11,11 @@ public class Villager : MonoBehaviour, IJobInterface
     public Coroutine JobRoutine { get; set; }
 
     public string JobName { get; set; }
-    public string pseudo { get; set; }
-    public int age { get; set; }
-    public bool vagabond { get; set; }
+    public string Pseudo { get; set; }
+    public int Age { get; set; }
+    public bool Vagabond { get; set; }
     public string actionText { get; set; }
-    public int energy { get; set; }
+    public int Energy { get; set; }
 
     public virtual void DoJob()
     {
@@ -58,7 +59,9 @@ public class Villager : MonoBehaviour, IJobInterface
                 if (!building1.isUsed)
                 {
                     NavMeshAgent agent = GetComponent<NavMeshAgent>();
+                    Animator animator = GetComponent<Animator>();
                     agent.SetDestination(building.position);
+                    animator.SetBool("isWalking", true);
 
                     building1.isUsed = true;
 
@@ -80,7 +83,9 @@ public class Villager : MonoBehaviour, IJobInterface
             agent.remainingDistance <= agent.stoppingDistance &&
             (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
         );
-        if(InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
+        Animator animator = GetComponent<Animator>();
+        animator.SetBool("isWalking", false);
+        if (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
             StartCoroutine(WorkLoop());
         else
             DoSleep();
@@ -92,7 +97,7 @@ public class Villager : MonoBehaviour, IJobInterface
         while (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
         {
             DoJob();
-            yield return new WaitForSeconds(1f); // rythme de travail
+            yield return new WaitForSeconds(InGameTime.Instance.workTime); // rythme de travail
         }
     }
 
@@ -160,17 +165,16 @@ public class Villager : MonoBehaviour, IJobInterface
 
     void Awake()
     {
-        JobName = "Villageois";
         JobTarget = "Ecole";
     }
 
     public void InitializeIdentity(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
     {
-        pseudo = pseudo;
-        age = age;
-        vagabond = vagabon;
+        Pseudo = pseudo;
+        Age = age;
+        Vagabond = vagabon;
         actionText = action;
-        energy = energy;
+        Energy = energy;
         JobName = jobname;
     }
 }
