@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class IdentityManager : MonoBehaviour
 {
+    public GameObject menu;
     public TextMeshProUGUI pseudo;
     public TextMeshProUGUI age;
     public TextMeshProUGUI job;
@@ -23,5 +24,15 @@ public class IdentityManager : MonoBehaviour
         action.text = "Action : Travail";
         energy.value = 50;
         energyvalue.text = energy.value.ToString();
+    }
+
+    public void OpenMenu()
+    {
+        menu.SetActive(true);
+    }
+
+    public void CloseMenu()
+    {
+        menu.SetActive(false);
     }
 }

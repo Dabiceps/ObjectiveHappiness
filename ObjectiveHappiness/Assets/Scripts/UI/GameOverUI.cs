@@ -16,7 +16,6 @@ public class GameOverUI : MonoBehaviour
         buildManager.SetActive(true);
         buildMenu.SetActive(false);
         resourcesManager.SetActive(true);
-        identityManager.SetActive(true);
         gameoverScreen.SetActive(false);
         victoryScreen.SetActive(false);
     }
@@ -27,7 +26,6 @@ public class GameOverUI : MonoBehaviour
         {
             buildManager.SetActive(false);
             resourcesManager.SetActive(false);
-            identityManager.SetActive(false);
             gameoverScreen.SetActive(true);
         }
     }
@@ -38,7 +36,6 @@ public class GameOverUI : MonoBehaviour
         {
             buildManager.SetActive(false);
             resourcesManager.SetActive(false);
-            identityManager.SetActive(false);
             victoryScreen.SetActive(true);
         }
     }
