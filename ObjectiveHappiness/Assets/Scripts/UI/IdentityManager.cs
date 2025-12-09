@@ -14,10 +14,13 @@ public class IdentityManager : MonoBehaviour
     public TextMeshProUGUI action;
     public Slider energy;
     public TextMeshProUGUI energyvalue;
-
+    List<string> pseudos = new List<string> {"Gontrand", "Godefroy", "Enguerrand", "Perceval", "Lothaire", "Sigisbert", "Sigebert", "Thiébault", "Théobald", "Rainier",
+                                        "Raimbaud", "Reinold", "Arsoude", "Hardouin", "Aubry", "Amaury", "Hildebert", "Clodomir", "Clotaire", "Childéric",
+                                        "Dagobert", "Arnaud", "Evrard", "Fulbert", "Wulfric",  "Warin", "Aleran", "Gautier", "Anseau", "Béranger",
+                                        "Brévalin", "Tancrède", "Isambart", "Odilon", "Landric", "Rodolphe", "Emmeran", "Isambard", "Eudes", "Broceliand"};
     void Start()
     {
-        pseudo.text = "Pascal Ducnam";
+        pseudo.text = pseudos[Random.Range(0, pseudos.Count)];
         age.text = "16 ans";
         job.text = "Bûcheron";
         vagabon.text = "Vagabon : Non";
