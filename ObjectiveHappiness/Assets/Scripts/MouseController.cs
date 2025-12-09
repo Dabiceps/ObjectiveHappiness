@@ -43,7 +43,7 @@ public class MouseController : MonoBehaviour
     {
         idManager.OpenMenu();
         IJobInterface jobInterface = villager.GetComponent<IJobInterface>();
-        idManager.IdentitePerso(jobInterface.pseudo, jobInterface.JobName, jobInterface.age, jobInterface.vagabond, jobInterface.actionText, jobInterface.energy);
+        idManager.IdentitePerso(jobInterface.Pseudo, jobInterface.JobName, jobInterface.Age, jobInterface.Vagabond, jobInterface.actionText, jobInterface.Energy);
     }
 
     void CloseVillagerMenu()
