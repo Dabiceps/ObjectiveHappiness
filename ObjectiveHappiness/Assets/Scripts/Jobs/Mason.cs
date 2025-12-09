@@ -28,6 +28,10 @@ public class Mason : Villager
         Debug.Log("New construction site detected by Mason");
         if (!isWorking)
         {
+            if (JobRoutine != null)
+            {
+                StopCoroutine(JobRoutine);
+            }
             StartJob();
         }
     }
@@ -74,6 +78,7 @@ public class Mason : Villager
         }
 
         isWorking = false;
+        JobRoutine = StartCoroutine(WanderRoutine());
     }
 
     public override void DoJob()
@@ -115,6 +120,7 @@ public class Mason : Villager
     void Start()
     {
         isWorking = false;
+        JobRoutine = StartCoroutine(WanderRoutine());
     }
 
     // Update is called once per frame

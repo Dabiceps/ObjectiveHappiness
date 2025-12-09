@@ -52,6 +52,7 @@ public class InGameTime : MonoBehaviour
     {
         isPaused = false;
         StartCoroutine(TimeLoop());
+        VillagerManager.Instance.StartGame();
     }
 
     void OnPauseClick()

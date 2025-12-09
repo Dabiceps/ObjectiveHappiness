@@ -7,9 +7,9 @@ public class Lumberjack : Villager
 
     void Awake()
     {
-        Debug.Log("Le bûcheron est prêt");
         JobName = "Bûcheron";
         JobTarget = "Arbre";
+        JobRoutine = StartCoroutine(WanderRoutine());
     }
     void Update()
     {

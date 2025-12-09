@@ -8,6 +8,7 @@ public class Farmer : Villager
     {
         JobName = "Farmer";
         JobTarget = "Buisson";
+        JobRoutine = StartCoroutine(WanderRoutine());
 
     }
     public override void StartJob()

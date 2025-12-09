@@ -39,6 +39,9 @@ public class VillagerManager : MonoBehaviour
     private void Start()
     {
         parent = GameObject.Find("Villagers");
+    }
+    public void StartGame()
+    {
         SpawnVillager(pseudoslist[Random.Range(0, pseudoslist.Count)], "Villageois", Random.Range(1, 20), false, "idle", 100);
         SpawnMiner(pseudoslist[Random.Range(0, pseudoslist.Count)], "Mineur", Random.Range(1, 20), false, "idle", 100);
         SpawnLumberjack(pseudoslist[Random.Range(0, pseudoslist.Count)], "Bûcheron", Random.Range(1, 20), false, "idle", 100);

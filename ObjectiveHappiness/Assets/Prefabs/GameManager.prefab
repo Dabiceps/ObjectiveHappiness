@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  idManager: {fileID: 0}
 --- !u!114 &7840943572557577439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,8 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7da247def8a17c4c8da7b1f20ca4ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  villager: {fileID: 467444645381630028, guid: f79e15a71ca50cd438079a1cbe5e2ec5, type: 3}
-  lumberjack: {fileID: 3547666376383632131, guid: 048ee0ca481336b4895775990c91545f, type: 3}
-  miner: {fileID: 4804715117251475786, guid: e00165f2475e249489972032d6ca0cf2, type: 3}
-  farmer: {fileID: 3451042669723255909, guid: 90f8296e832fb924b9af2463a0543d80, type: 3}
-  mason: {fileID: 6882973728606531562, guid: 838b5783e84e8a14c9526e6d4af6bca7, type: 3}
+  villager: {fileID: 1753355272013527447, guid: 070db68f9ef786640b5bdf0ff7a0ed02, type: 3}
+  lumberjack: {fileID: 5105288799006185813, guid: 9c2ed6c21c57a97419da59457852c527, type: 3}
+  miner: {fileID: 4342559162139203625, guid: 8c85aa11aae39ba4bbd47fc58660f2c6, type: 3}
+  farmer: {fileID: 1210960110471703543, guid: b0e094874d5321b4ea1ed4826606408c, type: 3}
+  mason: {fileID: 2783229422147768970, guid: 52c03ebcc91897644af47df52cd365f6, type: 3}
+  villagers: []
