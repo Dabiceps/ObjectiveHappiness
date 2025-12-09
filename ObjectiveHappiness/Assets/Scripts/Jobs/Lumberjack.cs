@@ -23,7 +23,10 @@ public class Lumberjack : Villager
 
     public override void DoJob()
     {
-
+        while (GameManager.Instance.currentDayState == GameManager.DayState.Work)
+        {
+            ResourceManager.Instance.ResourceRecovery("wood");
+        }
     }
 
 }

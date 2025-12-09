@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Miner : Villager
 {
+    public ResourceManager ResourceManager;
+
     void Awake()
     {
         Debug.Log("Le bûcheron est prêt");
@@ -17,5 +19,9 @@ public class Miner : Villager
     }
     public override void DoJob()
     {
+        while (GameManager.Instance.currentDayState == GameManager.DayState.Work)
+        {
+            ResourceManager.Instance.ResourceRecovery("stone");
+        }
     }
 }
