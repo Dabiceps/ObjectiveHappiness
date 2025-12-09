@@ -122,12 +122,13 @@ public class Villager : MonoBehaviour, IJobInterface
         while (true)
         {
             Vector3 randomPoint;
-
+            Animator animator = GetComponent<Animator>();
             // On cherche une position aléatoire valide sur la NavMesh
             if (RandomPointOnNavMesh(transform.position, 15f, out randomPoint))
             {
                 agent.SetDestination(randomPoint);
-
+                
+                animator.SetBool("isWalking", true);
                 // Attendre d'arriver à la destination
                 yield return new WaitUntil(() =>
                     !agent.pathPending &&
@@ -135,9 +136,9 @@ public class Villager : MonoBehaviour, IJobInterface
                     (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 );
             }
-
+            animator.SetBool("isWalking", false);
             // Petite pause avant de choisir un autre point
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(3f);
         } 
     }
 
@@ -166,6 +167,7 @@ public class Villager : MonoBehaviour, IJobInterface
     void Awake()
     {
         JobTarget = "Ecole";
+        JobRoutine = StartCoroutine(WanderRoutine());
     }
 
     public void InitializeIdentity(string pseudo, string jobname, int age, bool vagabon, string action, int energy)

@@ -9,6 +9,7 @@ public class Miner : Villager
     {
         JobName = "Mineur";
         JobTarget = "Rocher";
+        JobRoutine = StartCoroutine(WanderRoutine());
     }
     public override void StartJob()
     {
