@@ -11,6 +11,7 @@ public class ConstructionSite : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"Construction site created for {buildingData.buildingName}");
         OnSiteCreated?.Invoke(this);
     }
 

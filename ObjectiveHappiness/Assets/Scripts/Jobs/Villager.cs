@@ -5,20 +5,25 @@ using UnityEngine.AI;
 
 public class Villager : MonoBehaviour, IJobInterface
 {
-    public string JobName { get; set; }
+    
     public string JobTarget { get; set; }
     public Coroutine JobRoutine { get; set; }
-    public string Name { get; set; }
+
+    public string JobName { get; set; }
+    public string pseudo { get; set; }
+    public int age { get; set; }
+    public bool vagabond { get; set; }
+    public string actionText { get; set; }
+    public int energy { get; set; }
 
     public virtual void DoJob()
     {
-        //LOGIQUE DE LECOLE
-        this.gameObject.SetActive(false);
+
     }
 
     public virtual void EndJob()
     {
-        this.gameObject.SetActive(true);
+        Debug.Log("Job ended");
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
             if (building != null && building.CompareTag("Maison"))
@@ -43,6 +48,7 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public virtual void StartJob()
     {
+        Debug.Log("Job started");
         if (JobRoutine != null) StopCoroutine(JobRoutine);
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
@@ -74,12 +80,22 @@ public class Villager : MonoBehaviour, IJobInterface
             agent.remainingDistance <= agent.stoppingDistance &&
             (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
         );
-        if(GameManager.Instance.currentDayState == GameManager.DayState.Work)
-            DoJob();
+        if(InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
+            StartCoroutine(WorkLoop());
         else
             DoSleep();
         yield return null;
     }
+
+    public virtual IEnumerator WorkLoop()
+    {
+        while (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
+        {
+            DoJob();
+            yield return new WaitForSeconds(1f); // rythme de travail
+        }
+    }
+
     public virtual void DoSleep()
     {
         Debug.Log("Le villageois dort");
@@ -95,9 +111,10 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public IEnumerator WanderRoutine()
     {
+        Debug.Log("Le villageois vagabonde");
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
 
-        while (GameManager.Instance.currentDayState != GameManager.DayState.Work)
+        while (true)
         {
             Vector3 randomPoint;
 
@@ -145,5 +162,15 @@ public class Villager : MonoBehaviour, IJobInterface
     {
         JobName = "Villageois";
         JobTarget = "Ecole";
+    }
+
+    public void InitializeIdentity(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
+    {
+        pseudo = pseudo;
+        age = age;
+        vagabond = vagabon;
+        actionText = action;
+        energy = energy;
+        JobName = jobname;
     }
 }

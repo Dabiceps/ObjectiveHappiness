@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class InGameTime : MonoBehaviour
 {
+    public static InGameTime Instance;
+
     public TextMeshProUGUI jour;
     public TextMeshProUGUI heure;
     int intjour;
-    int intheure;
+    public int intheure = 480;
     int globaltime;
     float temps;
     public Button pause;
@@ -17,13 +19,25 @@ public class InGameTime : MonoBehaviour
     public Button x3;
     public Button start;
     bool isPaused = true;
+    public int workTime;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Plus d’un InGameTime détecté dans la scène ! Un a été supprimé.");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     void Start()
     {
         jour.text = "Jour : 1";
         heure.text = "Heure : 00:00";
         intjour = 1;
-        intheure = 0;
+        intheure = 400;
         globaltime = 0;
         temps = 0.5f;
 
@@ -46,6 +60,16 @@ public class InGameTime : MonoBehaviour
             if (!isPaused)
             {
                 intheure++;
+
+                if (intheure == 480)
+                {
+                    VillagerManager.Instance.StartWork();
+                }
+
+                if (intheure == 1140)
+                {
+                    VillagerManager.Instance.StartNight();
+                }
 
                 if (intheure >= 1440)
                 {

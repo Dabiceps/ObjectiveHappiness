@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3634772230258790504}
   m_Layer: 0
   m_Name: Construction site
-  m_TagString: 'construction_site '
+  m_TagString: construction_site
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

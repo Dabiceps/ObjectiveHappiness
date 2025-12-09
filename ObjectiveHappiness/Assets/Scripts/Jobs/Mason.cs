@@ -25,6 +25,7 @@ public class Mason : Villager
 
     private void OnNewConstructionSite(ConstructionSite site)
     {
+        Debug.Log("New construction site detected by Mason");
         if (!isWorking)
         {
             StartJob();
@@ -33,6 +34,7 @@ public class Mason : Villager
 
     public override void StartJob()
     {
+        Debug.Log("Mason starting job");
         if (isWorking) return;
 
         constructionSite = FindNearestJobTarget();
@@ -56,16 +58,16 @@ public class Mason : Villager
                 agent.remainingDistance <= agent.stoppingDistance &&
                 (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             );
-            if (GameManager.Instance.currentDayState == GameManager.DayState.Work)
+            if (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
                 StartCoroutine(WorkLoop());
             else
                 DoSleep();
             yield return null;
         }
 
-    IEnumerator WorkLoop()
+    public override IEnumerator WorkLoop()
     {
-        while (GameManager.Instance.currentDayState == GameManager.DayState.Work)
+        while (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
         {
             DoJob();
             yield return new WaitForSeconds(1f); // rythme de travail
@@ -112,7 +114,7 @@ public class Mason : Villager
 
     void Start()
     {
-        
+        isWorking = false;
     }
 
     // Update is called once per frame

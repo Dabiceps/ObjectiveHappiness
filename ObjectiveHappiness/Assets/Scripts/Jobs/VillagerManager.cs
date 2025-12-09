@@ -33,11 +33,11 @@ public class VillagerManager : MonoBehaviour
     private void Start()
     {
         parent = GameObject.Find("Villagers");
-        SpawnVillager();
-        SpawnMiner();
-        SpawnLumberjack();
-        SpawnFarmer();
-        SpawnMason();
+        SpawnVillager("Villageois", "Villageois", 18, false, "idle", 100);
+        SpawnMiner("Villageois", "Villageois", 18, false, "idle", 100);
+        SpawnLumberjack("Villageois", "Villageois", 18, false, "idle", 100);
+        SpawnFarmer("Villageois", "Villageois", 18, false, "idle", 100);
+        SpawnMason("Villageois", "Villageois", 18, false, "idle", 100);
         CheckList();
         
     }
@@ -77,38 +77,48 @@ public class VillagerManager : MonoBehaviour
         }
     }
 
-    public GameObject SpawnVillager()
+    public GameObject SpawnVillager(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
     {
         var instance = Instantiate(villager, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        IJobInterface jobInterface = instance.GetComponent<IJobInterface>();
+        jobInterface.InitializeIdentity(pseudo, jobname, age, vagabon, action, energy);
         return instance.gameObject;
     }
 
-    public GameObject SpawnLumberjack()
+    public GameObject SpawnLumberjack(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
     {
         var instance = Instantiate(lumberjack, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        IJobInterface jobInterface = instance.GetComponent<IJobInterface>();
+        jobInterface.InitializeIdentity(pseudo, jobname, age, vagabon, action, energy);
         return instance.gameObject;
     }
 
-    public GameObject SpawnMiner()
+    public GameObject SpawnMiner(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
     {
         var instance = Instantiate(miner, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        IJobInterface jobInterface = instance.GetComponent<IJobInterface>();
+        jobInterface.InitializeIdentity(pseudo, jobname, age, vagabon, action, energy);
         return instance.gameObject;
     }
 
-    public GameObject SpawnFarmer()
+    public GameObject SpawnFarmer(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
     {
         var instance = Instantiate(farmer, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        IJobInterface jobInterface = instance.GetComponent<IJobInterface>();
+        jobInterface.InitializeIdentity(pseudo, jobname, age, vagabon, action, energy);
         return instance.gameObject;
     }
 
-    public GameObject SpawnMason()
+    public GameObject SpawnMason(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
     {
         var instance = Instantiate(mason, new Vector3(0, 0, 0), Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        IJobInterface jobInterface = instance.GetComponent<IJobInterface>();
+        jobInterface.InitializeIdentity(pseudo, jobname, age, vagabon, action, energy);
         return instance.gameObject;
     }
 
