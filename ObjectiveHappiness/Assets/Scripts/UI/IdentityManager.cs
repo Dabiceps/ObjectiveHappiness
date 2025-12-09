@@ -8,25 +8,16 @@ public class IdentityManager : MonoBehaviour
 {
     public GameObject menu;
     public TextMeshProUGUI pseudo;
-    public TextMeshProUGUI age;
     public TextMeshProUGUI job;
+    public TextMeshProUGUI age;
     public TextMeshProUGUI vagabon;
     public TextMeshProUGUI action;
     public Slider energy;
     public TextMeshProUGUI energyvalue;
-    List<string> pseudos = new List<string> {"Gontrand", "Godefroy", "Enguerrand", "Perceval", "Lothaire", "Sigisbert", "Sigebert", "Thiébault", "Théobald", "Rainier",
-                                        "Raimbaud", "Reinold", "Arsoude", "Hardouin", "Aubry", "Amaury", "Hildebert", "Clodomir", "Clotaire", "Childéric",
-                                        "Dagobert", "Arnaud", "Evrard", "Fulbert", "Wulfric",  "Warin", "Aleran", "Gautier", "Anseau", "Béranger",
-                                        "Brévalin", "Tancrède", "Isambart", "Odilon", "Landric", "Rodolphe", "Emmeran", "Isambard", "Eudes", "Broceliand"};
+
     void Start()
     {
-        pseudo.text = pseudos[Random.Range(0, pseudos.Count)];
-        age.text = "16 ans";
-        job.text = "Bûcheron";
-        vagabon.text = "Vagabon : Non";
-        action.text = "Action : Travail";
-        energy.value = 50;
-        energyvalue.text = energy.value.ToString();
+
     }
 
     public void OpenMenu()
@@ -37,5 +28,16 @@ public class IdentityManager : MonoBehaviour
     public void CloseMenu()
     {
         menu.SetActive(false);
+    }
+
+    public void IdentitePerso(string IDpseudo, string IDjob, int IDage, bool IDvagabon, string IDaction, int IDenergie)
+    {
+        pseudo.text = "IDpseudo";
+        job.text = IDjob;
+        age.text = IDage.ToString() + " ans";
+        vagabon.text = "Vagabon : " + IDvagabon.ToString();
+        action.text = "Action : " + IDaction;
+        energy.value = IDenergie;
+        energyvalue.text = IDenergie.ToString();
     }
 }

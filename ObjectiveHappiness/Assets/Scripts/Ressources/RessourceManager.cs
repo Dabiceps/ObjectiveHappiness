@@ -41,6 +41,7 @@ public class ResourceManager : MonoBehaviour
             food = 0;
             residents /= 3;
         }
+        else { residents += 2; }
         ProsperityModifiers();
         gameOverUI.GameOverVerification();
         gameOverUI.WinVerification();
