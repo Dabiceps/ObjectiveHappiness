@@ -17,6 +17,12 @@ public class VillagerManager : MonoBehaviour
     private List<Transform> villagers = new List<Transform>();
     GameObject parent;
 
+    List<string> pseudoslist = new List<string> {"Gontrand", "Godefroy", "Enguerrand", "Perceval", "Lothaire", "Sigisbert", "Sigebert", "Thiébault", "Théobald", "Rainier",
+                                        "Raimbaud", "Reinold", "Arsoude", "Hardouin", "Aubry", "Amaury", "Hildebert", "Clodomir", "Clotaire", "Childéric",
+                                        "Dagobert", "Arnaud", "Evrard", "Fulbert", "Wulfric",  "Warin", "Aleran", "Gautier", "Anseau", "Béranger",
+                                        "Brévalin", "Tancrède", "Isambart", "Odilon", "Landric", "Rodolphe", "Emmeran", "Isambard", "Eudes", "Broceliand"};
+
+
 
     private void Awake()
     {
@@ -33,11 +39,11 @@ public class VillagerManager : MonoBehaviour
     private void Start()
     {
         parent = GameObject.Find("Villagers");
-        SpawnVillager("Villageois", "Villageois", 18, false, "idle", 100);
-        SpawnMiner("Villageois", "Villageois", 18, false, "idle", 100);
-        SpawnLumberjack("Villageois", "Villageois", 18, false, "idle", 100);
-        SpawnFarmer("Villageois", "Villageois", 18, false, "idle", 100);
-        SpawnMason("Villageois", "Villageois", 18, false, "idle", 100);
+        SpawnVillager(pseudoslist[Random.Range(0, pseudoslist.Count)], "Villageois", Random.Range(1, 20), false, "idle", 100);
+        SpawnMiner(pseudoslist[Random.Range(0, pseudoslist.Count)], "Mineur", Random.Range(1, 20), false, "idle", 100);
+        SpawnLumberjack(pseudoslist[Random.Range(0, pseudoslist.Count)], "Bûcheron", Random.Range(1, 20), false, "idle", 100);
+        SpawnFarmer(pseudoslist[Random.Range(0, pseudoslist.Count)], "Récolteur", Random.Range(1, 20), false, "idle", 100);
+        SpawnMason(pseudoslist[Random.Range(0, pseudoslist.Count)], "Maçon", Random.Range(1, 20), false, "idle", 100);
         CheckList();
         
     }
