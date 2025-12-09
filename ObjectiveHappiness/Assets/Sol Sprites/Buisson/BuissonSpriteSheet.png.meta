@@ -1,0 +1,1038 @@
+fileFormatVersion: 2
+guid: 392031b2dd410c54ebe3b6e6cb3d9b8d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2590
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52a09f8f28f49c4c95ab0c50d75d7f6
+      internalID: 1794308753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 2590
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82577c17a26ddc488bd64dcf0899566
+      internalID: 779474063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 2590
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46afce19070540a43ba61d926bc8e656
+      internalID: 127165517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 2590
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5166760e2766c547a3160e1ba7b5554
+      internalID: 821782664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 2590
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6c4bc39342a6147a96a2b010298b06
+      internalID: -5326891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 2590
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e98aff2404ab374eaa3d6c3b45eef05
+      internalID: 1141597613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 2590
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc027b70e4378243aadd491c97d55ab
+      internalID: 1279754043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2072
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb862a60dcb1dc34595a793e12cfd0bd
+      internalID: -2081228455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 2072
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a3bf983481ac344bbe7b2a2666d3fd
+      internalID: -1713379684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 2072
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb9b871282f8914b9dd3e8573f6d7c5
+      internalID: 1405175193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 2072
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18cefc478e7242542a0b49a434136371
+      internalID: -2013860764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 2072
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1486208f3f91aa04ab63d322cb887781
+      internalID: 888923216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 2072
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc671c6c99c99fb4fb23251e9ace7958
+      internalID: -789576214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 2072
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2468d359a8575247aeca30dd39458db
+      internalID: 692738086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1554
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43313a7ac5725d44288c02084395015e
+      internalID: 720595302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1554
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 062cd30cd8b171b42b5885e1c9d64735
+      internalID: 636672355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1554
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0fe9cffb53a0a45aefdddc6152df04
+      internalID: 1650439287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 1554
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f277ea1682d284ea491ba1e1772bbf
+      internalID: 1564610778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 1554
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4952aeb73bb5ea842a5bbc7170a1f49d
+      internalID: -1809993134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 1554
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9fcd6326f60cb4e8f0e6405d32623f
+      internalID: -1211485328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 1554
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4844450e0b9dc04288e846ce36a948d
+      internalID: -2087402563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1036
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0428ff65e7888814fa3dfa576cf8b884
+      internalID: -2037751373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1036
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54d5c1bb88ae6245b64ce6fdf3bb0f6
+      internalID: -750377522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1036
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e34ed95e1b0834c9931b8a5c35c492
+      internalID: 1739487633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 1036
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24734ab31860b3d45a482b842dcca219
+      internalID: -1559566560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 1036
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5ef77a1187d1e4f9d61e15e36d74a5
+      internalID: 929527920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 1036
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b4205676f1ed74bb43661c6d4fd841
+      internalID: 218450260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 1036
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d83f5a44e232d44bd6ea9057153a63
+      internalID: 1336207336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 518
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990d1d6aa5ca16d409219e0df61935e7
+      internalID: 1363119944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 518
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02277a8f338b716438dda21c17bdc162
+      internalID: 2004256149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 518
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a872f34bce191fd47989aba73abb5d41
+      internalID: 16082606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 518
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61fbaa73a96611e4bb2b6e822af810a6
+      internalID: 1256471521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 518
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a222bed32a979e04291ed4e2d4e56c29
+      internalID: 752055975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 518
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ea5d8e1f6db1c45ab5efef1f54effe
+      internalID: 1724208427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 518
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b8209365de1d2469f14beb8327915c
+      internalID: 709889945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418b2328c30e5464cbd8c309581fedee
+      internalID: -2024421743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92747a14b88a9cb44be17613c5121b55
+      internalID: 478108374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 0
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545a8551058913f4f87c1ef80a045f3d
+      internalID: -2137544374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 0
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55002e7bb0ad1b4d9c32c65dec11205
+      internalID: 1994587013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 0
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65919ecc6db20584ba8defc6ab5e7d95
+      internalID: 234375005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 0
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c04ed8a6a146c747aca2266bc23639e
+      internalID: -1079601623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuissonSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 0
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d61bcf84f6273d4fa22cbb9139aa0ca
+      internalID: 1175845467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1d1931ad84c3a8c4497a5c31ae2f0f7e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BuissonSpriteSheet_0: 1794308753
+      BuissonSpriteSheet_1: 779474063
+      BuissonSpriteSheet_10: -2013860764
+      BuissonSpriteSheet_11: 888923216
+      BuissonSpriteSheet_12: -789576214
+      BuissonSpriteSheet_13: 692738086
+      BuissonSpriteSheet_14: 720595302
+      BuissonSpriteSheet_15: 636672355
+      BuissonSpriteSheet_16: 1650439287
+      BuissonSpriteSheet_17: 1564610778
+      BuissonSpriteSheet_18: -1809993134
+      BuissonSpriteSheet_19: -1211485328
+      BuissonSpriteSheet_2: 127165517
+      BuissonSpriteSheet_20: -2087402563
+      BuissonSpriteSheet_21: -2037751373
+      BuissonSpriteSheet_22: -750377522
+      BuissonSpriteSheet_23: 1739487633
+      BuissonSpriteSheet_24: -1559566560
+      BuissonSpriteSheet_25: 929527920
+      BuissonSpriteSheet_26: 218450260
+      BuissonSpriteSheet_27: 1336207336
+      BuissonSpriteSheet_28: 1363119944
+      BuissonSpriteSheet_29: 2004256149
+      BuissonSpriteSheet_3: 821782664
+      BuissonSpriteSheet_30: 16082606
+      BuissonSpriteSheet_31: 1256471521
+      BuissonSpriteSheet_32: 752055975
+      BuissonSpriteSheet_33: 1724208427
+      BuissonSpriteSheet_34: 709889945
+      BuissonSpriteSheet_35: -2024421743
+      BuissonSpriteSheet_36: 478108374
+      BuissonSpriteSheet_37: -2137544374
+      BuissonSpriteSheet_38: 1994587013
+      BuissonSpriteSheet_39: 234375005
+      BuissonSpriteSheet_4: -5326891
+      BuissonSpriteSheet_40: -1079601623
+      BuissonSpriteSheet_41: 1175845467
+      BuissonSpriteSheet_5: 1141597613
+      BuissonSpriteSheet_6: 1279754043
+      BuissonSpriteSheet_7: -2081228455
+      BuissonSpriteSheet_8: -1713379684
+      BuissonSpriteSheet_9: 1405175193
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
