@@ -6224,6 +6224,7 @@ GameObject:
   - component: {fileID: 8760758377126591909}
   - component: {fileID: 3398921138869130467}
   - component: {fileID: 6949788685133100481}
+  - component: {fileID: 5929681471520574064}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -6337,6 +6338,23 @@ MonoBehaviour:
   identityManager: {fileID: 6204332004834234003}
   gameoverScreen: {fileID: 7095388972174311418}
   victoryScreen: {fileID: 3116349900985948962}
+--- !u!114 &5929681471520574064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205691401111841371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7c4de4a8ee6604789424e06f7a7998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 3260812927888829172, guid: 0a9fa09f16222e34383369dee66226fc, type: 3}
+  pause: {fileID: 2144987693175299339}
+  resume: {fileID: 8337160571653303128}
+  x2: {fileID: 3547894207737736668}
+  x3: {fileID: 2775374812968898629}
 --- !u!1 &8266381233768720457
 GameObject:
   m_ObjectHideFlags: 0

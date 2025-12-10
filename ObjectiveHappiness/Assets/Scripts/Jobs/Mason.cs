@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Mason : Villager
 {
-    private bool isWorking = false;
     private GameObject constructionSite;
     private List<ConstructionSite> assignedSites = new List<ConstructionSite>();
 
