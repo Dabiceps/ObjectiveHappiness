@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class IdentityManager : MonoBehaviour
 {
+    public static IdentityManager Instance;
+
     public GameObject menu;
     public TextMeshProUGUI pseudo;
     public TextMeshProUGUI job;
@@ -18,6 +20,17 @@ public class IdentityManager : MonoBehaviour
     private bool isOpen = false;
     private IJobInterface lastVillager;
 
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Plus d’un IdentityManager détecté dans la scène ! Un a été supprimé.");
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
     void Start()
     {
 
