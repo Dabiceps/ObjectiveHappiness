@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
@@ -83,13 +84,19 @@ public class ResourceManager : MonoBehaviour
         {
             prosperity += residents * (0.2f + nbrlibrairie*0.1f + nbrmusee*0.2f);
         }
-        //foreach (villager in villagers)
-        //{
-        //  if (villager.energie = 0 && N'a pas trouvé de maison)
-        //  {
-        //      prosperity -= 0.3f
-        //  }
-        //}
+        
+        // Baisse la prospérité de 0.3 pour chaques villageois ayant 0 d'énergie à la fin de la journée
+        foreach (Transform villager in VillagerManager.Instance.villagers)
+        {
+            if (GetVillagerEnergy(villager) == 0)
+            {
+                prosperity -= 0.3f;
+            }
+        }
+        if (prosperity < 0)
+        {
+            prosperity = 0;
+        }
     }
 
     public int CountBuilding(string tag)
@@ -103,5 +110,11 @@ public class ResourceManager : MonoBehaviour
             }
         }
         return count;
+    }
+
+    public int GetVillagerEnergy(Transform villager)
+    {
+        IJobInterface jobInterface = villager.GetComponent<IJobInterface>();
+        return jobInterface.Energy;
     }
 }

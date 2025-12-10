@@ -1311,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 245861331}
     - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: food
-      value: 10000
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: wood
