@@ -15,5 +15,5 @@ MonoBehaviour:
   buildingName: Maison
   prefab: {fileID: 7970756486107012149, guid: 1027993351f7fab41aa5e3ac65258865, type: 3}
   ghostPrefab: {fileID: 8562981065297062096, guid: 085960a4a51dab54993643daf7160fea, type: 3}
-  costWood: 0
-  costStone: 0
+  costWood: 20
+  costStone: 30

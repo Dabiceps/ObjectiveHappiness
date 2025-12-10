@@ -15,5 +15,5 @@ MonoBehaviour:
   buildingName: Librairie
   prefab: {fileID: 1249206136988829910, guid: 6f2258a76202eaa4bbfd6adb3ee0fb24, type: 3}
   ghostPrefab: {fileID: 3380072885350226705, guid: 7fdbf3dd74c22d34ebe96723c69d98ad, type: 3}
-  costWood: 0
-  costStone: 0
+  costWood: 70
+  costStone: 20

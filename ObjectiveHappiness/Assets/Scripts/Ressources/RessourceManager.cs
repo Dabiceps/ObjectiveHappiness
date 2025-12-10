@@ -35,11 +35,11 @@ public class ResourceManager : MonoBehaviour
     // Modifie : Food / Resident / Prosperity
     public void EndOfDay()
     {
-        food -= residents * 10;
+        food -= residents * 20;
         if (food < 0)
         {
             food = 0;
-            residents /= 3;
+            residents -= residents/3;
         }
         else { residents += 2; }
         ProsperityModifiers();
@@ -83,7 +83,13 @@ public class ResourceManager : MonoBehaviour
         {
             prosperity += residents * (0.2f + nbrlibrairie*0.1f + nbrmusee*0.2f);
         }
-
+        //foreach (villager in villagers)
+        //{
+        //  if (villager.energie = 0 && N'a pas trouvé de maison)
+        //  {
+        //      prosperity -= 0.3f
+        //  }
+        //}
     }
 
     public int CountBuilding(string tag)
