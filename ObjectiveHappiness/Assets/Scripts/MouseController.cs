@@ -7,8 +7,6 @@ public class MouseController : MonoBehaviour
 {
     public Camera cam;
     private GameObject currentObject;
-    private NavMeshAgent currentAgent;
-    public IdentityManager idManager;
 
     // Update is called once per frame
     void Update()
@@ -23,14 +21,14 @@ public class MouseController : MonoBehaviour
                     case "Villager":
                         currentObject = hit.collider.gameObject;
                         IJobInterface jobInterface = currentObject.GetComponent<IJobInterface>();
-                        idManager.OpenMenu(jobInterface);
+                        IdentityManager.Instance.OpenMenu(jobInterface);
                         Debug.Log("Clicked on: " + hit.collider.name);
                         break;
                     case "Ground":
-                        idManager.CloseMenu();
+                        IdentityManager.Instance.CloseMenu();
                         break;
                     case "Building":
-                        idManager.CloseMenu();
+                        IdentityManager.Instance.CloseMenu();
                         Debug.Log("Building clicked: " + hit.collider.name);
                         break;
                     default:
