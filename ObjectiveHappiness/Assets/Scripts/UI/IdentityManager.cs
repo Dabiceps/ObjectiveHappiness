@@ -15,16 +15,28 @@ public class IdentityManager : MonoBehaviour
     public Slider energy;
     public TextMeshProUGUI energyvalue;
 
+    private bool isOpen = false;
+    private IJobInterface lastVillager;
+
     void Start()
     {
 
     }
 
-    public void OpenMenu()
+    public void OpenMenu(IJobInterface villager)
     {
         menu.SetActive(true);
+        lastVillager = villager;
+        IdentitePerso(villager.Pseudo, villager.JobName, villager.Age, villager.Vagabond, villager.actionText, villager.Energy);
+        isOpen = true;
     }
 
+    public void UpdateEnergy()
+    {
+        if (!isOpen) return;
+        energy.value = lastVillager.Energy;
+        energyvalue.text = lastVillager.Energy.ToString();
+    }
     public void CloseMenu()
     {
         menu.SetActive(false);

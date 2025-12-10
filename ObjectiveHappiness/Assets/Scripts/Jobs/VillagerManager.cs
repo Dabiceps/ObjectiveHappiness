@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.VFX;
 
 public class VillagerManager : MonoBehaviour
 {
     [Header("Villager Prefabs")]
-    public GameObject villager;
-    public GameObject lumberjack;
-    public GameObject miner;
-    public GameObject farmer;
-    public GameObject mason;
+    [SerializeField] private GameObject villager;
+    [SerializeField] private GameObject lumberjack;
+    [SerializeField] private GameObject miner;
+    [SerializeField] private GameObject farmer;
+    [SerializeField] private GameObject mason;
 
 
     public static VillagerManager Instance;
@@ -22,7 +23,16 @@ public class VillagerManager : MonoBehaviour
                                         "Dagobert", "Arnaud", "Evrard", "Fulbert", "Wulfric",  "Warin", "Aleran", "Gautier", "Anseau", "Béranger",
                                         "Brévalin", "Tancrède", "Isambart", "Odilon", "Landric", "Rodolphe", "Emmeran", "Isambard", "Eudes", "Broceliand", "Hippolyte "};
 
+    public enum JobType
+    {
+        Villager,
+        Lumberjack,
+        Miner,
+        Farmer,
+        Mason
+    }
 
+    private Dictionary<JobType, GameObject> jobPrefabs;
 
     private void Awake()
     {
@@ -34,6 +44,16 @@ public class VillagerManager : MonoBehaviour
         }
 
         Instance = this;
+
+        jobPrefabs = new Dictionary<JobType, GameObject>
+    {
+        { JobType.Villager, villager },
+        { JobType.Lumberjack, lumberjack },
+        { JobType.Miner, miner },
+        { JobType.Farmer, farmer },
+        { JobType.Mason, mason }
+    };
+
     }
 
     private void Start()
@@ -42,11 +62,13 @@ public class VillagerManager : MonoBehaviour
     }
     public void StartGame()
     {
-        SpawnVillager(pseudoslist[Random.Range(0, pseudoslist.Count)], "Villageois", Random.Range(1, 20), false, "idle", 100);
-        SpawnMiner(pseudoslist[Random.Range(0, pseudoslist.Count)], "Mineur", Random.Range(1, 20), false, "idle", 100);
-        SpawnLumberjack(pseudoslist[Random.Range(0, pseudoslist.Count)], "Bûcheron", Random.Range(1, 20), false, "idle", 100);
-        SpawnFarmer(pseudoslist[Random.Range(0, pseudoslist.Count)], "Récolteur", Random.Range(1, 20), false, "idle", 100);
-        SpawnMason(pseudoslist[Random.Range(0, pseudoslist.Count)], "Maçon", Random.Range(1, 20), false, "idle", 100);
+
+
+        SpawnRandom(JobType.Villager, "Villageois");
+        SpawnRandom(JobType.Miner, "Mineur");
+        SpawnRandom(JobType.Lumberjack, "Bûcheron");
+        SpawnRandom(JobType.Farmer, "Récolteur");
+        SpawnRandom(JobType.Mason, "Maçon");
         CheckList();
         
     }
@@ -84,6 +106,24 @@ public class VillagerManager : MonoBehaviour
             Building building1 = building.GetComponent<Building>();
             building1.isUsed = false;
         }
+    }
+
+    public GameObject SpawnPNJ(JobType type, string pseudo, string jobname, int age, bool vagabon, string action, int energy)
+    {
+        var prefab = jobPrefabs[type];
+
+        var instance = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        instance.transform.SetParent(parent.transform, worldPositionStays: true);
+
+        var jobInterface = instance.GetComponent<IJobInterface>();
+        jobInterface.InitializeIdentity(pseudo, jobname, age, vagabon, action, energy);
+
+        return instance.gameObject;
+    }
+
+    void SpawnRandom(JobType type, string jobname)
+    {
+        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "idle", 100);
     }
 
     public GameObject SpawnVillager(string pseudo, string jobname, int age, bool vagabon, string action, int energy)
