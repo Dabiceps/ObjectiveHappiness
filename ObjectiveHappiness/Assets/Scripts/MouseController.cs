@@ -22,14 +22,15 @@ public class MouseController : MonoBehaviour
                 {
                     case "Villager":
                         currentObject = hit.collider.gameObject;
-                        OpenVillagerMenu(currentObject);
+                        idManager.OpenMenu();
+                        VillagerMenu(currentObject);
                         Debug.Log("Clicked on: " + hit.collider.name);
                         break;
                     case "Ground":
-                        CloseVillagerMenu();
+                        idManager.CloseMenu();
                         break;
                     case "Building":
-                        CloseVillagerMenu();
+                        idManager.CloseMenu();
                         Debug.Log("Building clicked: " + hit.collider.name);
                         break;
                     default:
@@ -39,15 +40,9 @@ public class MouseController : MonoBehaviour
             }
         }
     }
-    void OpenVillagerMenu(GameObject villager)
+    void VillagerMenu(GameObject villager)
     {
-        idManager.OpenMenu();
         IJobInterface jobInterface = villager.GetComponent<IJobInterface>();
         idManager.IdentitePerso(jobInterface.Pseudo, jobInterface.JobName, jobInterface.Age, jobInterface.Vagabond, jobInterface.actionText, jobInterface.Energy);
-    }
-
-    void CloseVillagerMenu()
-    {
-        idManager.CloseMenu();
     }
 }
