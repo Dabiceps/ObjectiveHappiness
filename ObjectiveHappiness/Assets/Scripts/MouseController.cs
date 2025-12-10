@@ -22,8 +22,8 @@ public class MouseController : MonoBehaviour
                 {
                     case "Villager":
                         currentObject = hit.collider.gameObject;
-                        idManager.OpenMenu();
-                        VillagerMenu(currentObject);
+                        IJobInterface jobInterface = currentObject.GetComponent<IJobInterface>();
+                        idManager.OpenMenu(jobInterface);
                         Debug.Log("Clicked on: " + hit.collider.name);
                         break;
                     case "Ground":
@@ -39,10 +39,5 @@ public class MouseController : MonoBehaviour
                 }
             }
         }
-    }
-    void VillagerMenu(GameObject villager)
-    {
-        IJobInterface jobInterface = villager.GetComponent<IJobInterface>();
-        idManager.IdentitePerso(jobInterface.Pseudo, jobInterface.JobName, jobInterface.Age, jobInterface.Vagabond, jobInterface.actionText, jobInterface.Energy);
     }
 }
