@@ -76,7 +76,7 @@ public class ResourceManager : MonoBehaviour
     {
         int nbrlibrairie = CountBuilding("Librairie");
         int nbrmusee = CountBuilding("Musee");
-        if (food < 0)
+        if (food == 0)
         {
             prosperity -= prosperity*0.05f;
         }
