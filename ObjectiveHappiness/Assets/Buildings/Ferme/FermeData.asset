@@ -15,5 +15,5 @@ MonoBehaviour:
   buildingName: Ferme
   prefab: {fileID: 1501558789451409385, guid: 5af0a2bb9ca895e47be4c7073a2c4924, type: 3}
   ghostPrefab: {fileID: 8487142041209640788, guid: 165fa7dc5f0c5894db935bc30ad1b137, type: 3}
-  costWood: 0
-  costStone: 0
+  costWood: 50
+  costStone: 20
