@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class IdentityManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class IdentityManager : MonoBehaviour
 
     private bool isOpen = false;
     private IJobInterface lastVillager;
+    private GameObject currentVillager;
 
     void Awake()
     {
@@ -40,6 +42,7 @@ public class IdentityManager : MonoBehaviour
     {
         menu.SetActive(true);
         lastVillager = villager;
+        currentVillager = ((MonoBehaviour)villager).gameObject;
         IdentitePerso(villager.Pseudo, villager.JobName, villager.Age, villager.Vagabond, villager.actionText, villager.Energy);
         isOpen = true;
     }
@@ -65,4 +68,7 @@ public class IdentityManager : MonoBehaviour
         energy.value = IDenergie;
         energyvalue.text = IDenergie.ToString();
     }
+
+    // VillagerManager.Instance.ConvertInto(currentVillager, VillagerManager.JobType.Mason);
+
 }

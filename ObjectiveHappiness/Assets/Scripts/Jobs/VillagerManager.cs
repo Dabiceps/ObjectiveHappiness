@@ -179,7 +179,18 @@ public class VillagerManager : MonoBehaviour
             {
                 villagers.Add(child);
             }
-        }
+        } 
+
     }
+
+    public void ConvertInto(GameObject prevJob, JobType newJob)
+    {
+        IJobInterface villager = prevJob.GetComponent<IJobInterface>();
+        SpawnPNJ(newJob, villager.Pseudo, newJob.ToString(), villager.Age, villager.Vagabond, "idle", villager.Energy);
+        Destroy(prevJob);
+    }
+
+
+
 
 }
