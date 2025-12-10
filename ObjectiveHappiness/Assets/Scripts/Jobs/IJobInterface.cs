@@ -22,4 +22,5 @@ public interface IJobInterface
     void EndJob();
 
     void DoSleep();
+
 }
