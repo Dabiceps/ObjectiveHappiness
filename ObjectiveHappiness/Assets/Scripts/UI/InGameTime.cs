@@ -40,6 +40,7 @@ public class InGameTime : MonoBehaviour
         intheure = 400;
         globaltime = 0;
         temps = 0.5f;
+        workTime = temps * 5;
 
         start.onClick.AddListener(() => StartGame());
         pause.onClick.AddListener(() => OnPauseClick());
@@ -64,23 +65,23 @@ public class InGameTime : MonoBehaviour
     {
         isPaused = false;
         temps = 0.3f;
-        workTime = 10f;
+        workTime = temps * 5;
         SetVillagerSpeed(1f);
     }
     void OnX2Click()
     {
         isPaused = false;
         temps = 0.15f;
-        workTime = 10f;
-        SetVillagerSpeed(2f);
+        workTime = temps * 5;
+        SetVillagerSpeed(10f);
     }
 
     void OnX3Click()
     {
         isPaused = false;
         temps = 0.005f;
-        workTime = 10f;
-        SetVillagerSpeed(3f);
+        workTime = temps * 5;
+        SetVillagerSpeed(20f);
     }
 
     IEnumerator TimeLoop()
