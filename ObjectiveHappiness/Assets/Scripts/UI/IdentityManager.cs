@@ -35,7 +35,7 @@ public class IdentityManager : MonoBehaviour
         pseudo.text = IDpseudo;
         job.text = IDjob;
         age.text = IDage.ToString() + " ans";
-        vagabon.text = "Vagabon : " + IDvagabon.ToString();
+        vagabon.text = "Vagabond : " + IDvagabon.ToString();
         action.text = "Action : " + IDaction;
         energy.value = IDenergie;
         energyvalue.text = IDenergie.ToString();

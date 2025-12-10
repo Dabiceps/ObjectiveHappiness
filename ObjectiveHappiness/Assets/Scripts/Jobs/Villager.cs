@@ -153,8 +153,14 @@ public class Villager : MonoBehaviour, IJobInterface
                InGameTime.Instance.intheure >= 480 &&
                InGameTime.Instance.intheure < 1140)
         {
-            DoJob();
-            Energy--;
+            if (Energy > 0)
+            {
+                DoJob();
+            }
+            if (Vagabond == false)
+            {
+                Energy--;
+            }
             yield return new WaitForSeconds(InGameTime.Instance.workTime); // rythme de travail
         }
 
@@ -180,6 +186,7 @@ public class Villager : MonoBehaviour, IJobInterface
         // mais on peut explicitement lancer le vagabondage si aucune coroutine n'est active.
         if (JobRoutine == null)
             JobRoutine = StartCoroutine(WanderRoutine());
+        Energy = 100;
     }
 
     public void Vagabonder()
