@@ -97,6 +97,7 @@ public class Villager : MonoBehaviour, IJobInterface
         while (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
         {
             DoJob();
+            Energy--;
             yield return new WaitForSeconds(InGameTime.Instance.workTime); // rythme de travail
         }
     }
