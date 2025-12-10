@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,8 +7,11 @@ public class Mason : Villager
 {
     private bool isWorking = false;
     private GameObject constructionSite;
+    private List<ConstructionSite> assignedSites = new List<ConstructionSite>();
+
     private void Awake()
     {
+        // override du job target
         JobName = "Mason";
         JobTarget = "construction_site";
     }
@@ -16,67 +19,96 @@ public class Mason : Villager
     private void OnEnable()
     {
         ConstructionSite.OnSiteCreated += OnNewConstructionSite;
+        ConstructionSite.OnSiteFinished += OnConstructionFinished;
     }
 
     private void OnDisable()
     {
         ConstructionSite.OnSiteCreated -= OnNewConstructionSite;
+        ConstructionSite.OnSiteFinished -= OnConstructionFinished;
+    }
+
+    private void Start()
+    {
+        isWorking = false;
+        if (JobRoutine == null) JobRoutine = StartCoroutine(WanderRoutine());
     }
 
     private void OnNewConstructionSite(ConstructionSite site)
     {
-        Debug.Log("New construction site detected by Mason");
-        if (!isWorking)
+        if (site == null) return;
+
+        // si on est disponible, on prend directement ce chantier
+        if (!isWorking && constructionSite == null)
         {
-            if (JobRoutine != null)
-            {
-                StopCoroutine(JobRoutine);
-            }
+            constructionSite = site.gameObject;
             StartJob();
+        }
+        else
+        {
+            // sinon on l'ajoute √† la file d'attente
+            if (!assignedSites.Contains(site))
+                assignedSites.Add(site);
         }
     }
 
     public override void StartJob()
     {
-        Debug.Log("Mason starting job");
         if (isWorking) return;
 
-        constructionSite = FindNearestJobTarget();
+        // si pas de chantier assign√©, cherche le plus proche
+        if (constructionSite == null)
+            constructionSite = FindNearestJobTarget();
+
         if (constructionSite == null) return;
 
         isWorking = true;
 
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(constructionSite.transform.position);
+        if (JobRoutine != null) StopCoroutine(JobRoutine);
 
-        StartCoroutine(WaitUntilArrived());
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        if (agent != null)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(constructionSite.transform.position);
+        }
+
+        JobRoutine = StartCoroutine(WaitUntilArrived());
     }
 
-
     public override IEnumerator WaitUntilArrived()
-        {
-            NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            yield return new WaitUntil(() => !agent.pathPending);
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        if (agent == null) yield break;
 
-            yield return new WaitUntil(() =>
-                agent.remainingDistance <= agent.stoppingDistance &&
-                (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-            );
-            if (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
-                StartCoroutine(WorkLoop());
-            else
-                DoSleep();
-            yield return null;
-        }
+        yield return new WaitUntil(() => !agent.pathPending);
+
+        yield return new WaitUntil(() =>
+            agent.remainingDistance <= agent.stoppingDistance &&
+            (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+        );
+
+        agent.isStopped = true;
+        agent.ResetPath();
+
+        if (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
+            JobRoutine = StartCoroutine(WorkLoop());
+        else
+            DoSleep();
+    }
 
     public override IEnumerator WorkLoop()
     {
+        Animator animator = GetComponent<Animator>();
+        animator?.SetBool("isWalking", false);
+
         while (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
         {
             DoJob();
-            yield return new WaitForSeconds(1f); // rythme de travail
+            yield return new WaitForSeconds(InGameTime.Instance.workTime);
         }
 
+        // Fin de journ√©e ou pause : on arr√™te de travailler
         isWorking = false;
         JobRoutine = StartCoroutine(WanderRoutine());
     }
@@ -89,22 +121,17 @@ public class Mason : Villager
         if (site == null) return;
 
         site.WorkOnce();
-
-        // Animations ÈventuellesÖ
-        // RÈduire líÈnergie du villageoisÖ
     }
 
     private GameObject FindNearestJobTarget()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag(JobTarget);
+        if (targets.Length == 0) return null;
+
         GameObject nearestTarget = null;
         float minDistance = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
 
-        if (targets.Length == 0)
-        {
-            return null;
-        }
         foreach (GameObject target in targets)
         {
             float distance = Vector3.Distance(currentPosition, target.transform.position);
@@ -117,15 +144,50 @@ public class Mason : Villager
         return nearestTarget;
     }
 
-    void Start()
+    public override void DoSleep()
     {
+        base.DoSleep();
         isWorking = false;
-        JobRoutine = StartCoroutine(WanderRoutine());
+        constructionSite = null;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnConstructionFinished(ConstructionSite site)
     {
-        
+        if (site == null) return;
+
+        // Retirer de la liste si pr√©sent
+        if (assignedSites.Contains(site))
+            assignedSites.Remove(site);
+
+        // Si c'√©tait notre chantier courant, le vider
+        if (constructionSite != null)
+        {
+            var s = constructionSite.GetComponent<ConstructionSite>();
+            if (s == site)
+                constructionSite = null;
+        }
+
+        isWorking = false;
+
+        TryStartNextSite();
+    }
+
+    private void TryStartNextSite()
+    {
+        if (isWorking) return;
+
+        // s'il n'y a rien en attente, retourner en vagabondage
+        if (assignedSites.Count == 0)
+        {
+            if (JobRoutine != null) StopCoroutine(JobRoutine);
+            JobRoutine = StartCoroutine(WanderRoutine());
+            return;
+        }
+
+        // prendre le prochain chantier en file
+        constructionSite = assignedSites[0].gameObject;
+        assignedSites.RemoveAt(0);
+
+        StartJob();
     }
 }
