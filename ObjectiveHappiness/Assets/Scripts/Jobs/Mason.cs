@@ -96,22 +96,6 @@ public class Mason : Villager
             DoSleep();
     }
 
-    public override IEnumerator WorkLoop()
-    {
-        Animator animator = GetComponent<Animator>();
-        animator?.SetBool("isWalking", false);
-
-        while (InGameTime.Instance.intheure >= 480 && InGameTime.Instance.intheure < 1140)
-        {
-            DoJob();
-            yield return new WaitForSeconds(InGameTime.Instance.workTime);
-        }
-
-        // Fin de journée ou pause : on arrête de travailler
-        isWorking = false;
-        JobRoutine = StartCoroutine(WanderRoutine());
-    }
-
     public override void DoJob()
     {
         if (constructionSite == null) return;

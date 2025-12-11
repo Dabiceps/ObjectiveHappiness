@@ -10,10 +10,7 @@ public class ResourceManager : MonoBehaviour
     public AffichageUI UI;
     public GameOverUI gameOverUI;
 
-    public int wood;
-    public int stone;
-    public int food;
-    public int residents;
+    public int wood, stone, food, residents;
     public float prosperity;
 
     private void Awake()

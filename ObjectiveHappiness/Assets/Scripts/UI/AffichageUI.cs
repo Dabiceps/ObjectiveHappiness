@@ -6,12 +6,7 @@ using System.Globalization;
 
 public class AffichageUI : MonoBehaviour
 {
-    public TextMeshProUGUI woodDisplay;
-    public TextMeshProUGUI stoneDisplay;
-    public TextMeshProUGUI foodDisplay;
-    public TextMeshProUGUI residentDisplay;
-    public TextMeshProUGUI prosperityDisplay;
-
+    public TextMeshProUGUI woodDisplay, stoneDisplay, foodDisplay, residentDisplay, prosperityDisplay;
 
     // Start is called before the first frame update
     void Start()

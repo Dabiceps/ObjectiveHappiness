@@ -10,13 +10,9 @@ public class IdentityManager : MonoBehaviour
     public static IdentityManager Instance;
 
     public GameObject menu;
-    public TextMeshProUGUI pseudo;
-    public TextMeshProUGUI job;
-    public TextMeshProUGUI age;
-    public TextMeshProUGUI vagabon;
-    public TextMeshProUGUI action;
+    public TextMeshProUGUI pseudo, job, age, vagabon, action, energyvalue;
     public Slider energy;
-    public TextMeshProUGUI energyvalue;
+    public Button RecoMason, RecoLumberjack, RecoMiner, RecoFarmer;
 
     private bool isOpen = false;
     private IJobInterface lastVillager;
@@ -33,9 +29,14 @@ public class IdentityManager : MonoBehaviour
 
         Instance = this;
     }
+
     void Start()
     {
-
+        // Convert villager into a new job
+        RecoMason.onClick.AddListener(() => VillagerManager.Instance.ConvertInto(currentVillager, VillagerManager.JobType.Mason));
+        RecoLumberjack.onClick.AddListener(() => VillagerManager.Instance.ConvertInto(currentVillager, VillagerManager.JobType.Lumberjack));
+        RecoMiner.onClick.AddListener(() => VillagerManager.Instance.ConvertInto(currentVillager, VillagerManager.JobType.Miner));
+        RecoFarmer.onClick.AddListener(() => VillagerManager.Instance.ConvertInto(currentVillager, VillagerManager.JobType.Farmer));
     }
 
     public void OpenMenu(IJobInterface villager)
@@ -68,7 +69,4 @@ public class IdentityManager : MonoBehaviour
         energy.value = IDenergie;
         energyvalue.text = IDenergie.ToString();
     }
-
-    // VillagerManager.Instance.ConvertInto(currentVillager, VillagerManager.JobType.Mason);
-
 }

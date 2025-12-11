@@ -156,10 +156,11 @@ public class Villager : MonoBehaviour, IJobInterface
             if (Energy > 0)
             {
                 DoJob();
-            }
-            if (Vagabond == false)
-            {
-                Energy--;
+                if (Vagabond == false)
+                {
+                    Energy--;
+                    IdentityManager.Instance.UpdateEnergy();
+                }
             }
             yield return new WaitForSeconds(InGameTime.Instance.workTime); // rythme de travail
         }
@@ -187,6 +188,7 @@ public class Villager : MonoBehaviour, IJobInterface
         if (JobRoutine == null)
             JobRoutine = StartCoroutine(WanderRoutine());
         Energy = 100;
+        IdentityManager.Instance.UpdateEnergy();
     }
 
     public void Vagabonder()
