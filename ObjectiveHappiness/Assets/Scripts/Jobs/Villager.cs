@@ -115,7 +115,6 @@ public class Villager : MonoBehaviour, IJobInterface
                         agent.isStopped = false;
                         agent.SetDestination(building.position);
                         animator?.SetBool("isWalking", true);
-                        actionText = "Va au travail";
 
                         building1.isUsed = true;
 
@@ -174,7 +173,6 @@ public class Villager : MonoBehaviour, IJobInterface
     {
         Animator animator = GetComponent<Animator>();
         animator?.SetBool("isWalking", false);
-        actionText = $"Travaille";
 
         while (InGameTime.Instance != null &&
                InGameTime.Instance.intheure >= 480 &&
@@ -183,6 +181,8 @@ public class Villager : MonoBehaviour, IJobInterface
             if (Energy > 0)
             {
                 DoJob();
+                actionText = "Travail";
+                IdentityManager.Instance.UpdateAction("Travail");
                 if (Vagabond == false)
                 {
                     Energy--;
@@ -209,11 +209,15 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public virtual void DoSleep()
     {
-        actionText = "Dort pour récupérer de l'énergie";
-        Animator animator = GetComponent<Animator>();
-        animator?.SetBool("isWalking", false);
+        Debug.Log($"{Pseudo} dort");
+        // Par défaut on ne force pas un new Wander si on est déjà en JobRoutine null,
+        // mais on peut explicitement lancer le vagabondage si aucune coroutine n'est active.
+        if (JobRoutine == null)
+            JobRoutine = StartCoroutine(WanderRoutine());
         Energy = 100;
         IdentityManager.Instance.UpdateEnergy();
+        actionText = "Dort";
+        IdentityManager.Instance.UpdateAction("Dort");
     }
 
     public void Vagabonder()
@@ -224,7 +228,7 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public IEnumerator WanderRoutine()
     {
-        actionText = "Vagabonde";
+        Debug.Log($"{Pseudo} vagabonde");
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         Animator animator = GetComponent<Animator>();
 

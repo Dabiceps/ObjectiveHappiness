@@ -124,7 +124,7 @@ public class VillagerManager : MonoBehaviour
 
     void SpawnRandom(JobType type, string jobname)
     {
-        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "idle", 100);
+        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "Vagabonde", 100);
     }
     void CheckList()
     {
