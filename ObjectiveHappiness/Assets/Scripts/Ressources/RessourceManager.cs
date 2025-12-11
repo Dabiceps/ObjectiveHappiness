@@ -39,7 +39,12 @@ public class ResourceManager : MonoBehaviour
             food = 0;
             residents -= residents/3;
         }
-        else { residents += 2; }
+        else 
+        {
+            residents += 2;
+            VillagerManager.Instance.SpawnRandom(VillagerManager.JobType.Villager, "Villageois");
+            VillagerManager.Instance.SpawnRandom(VillagerManager.JobType.Villager, "Villageois");
+        }
         ProsperityModifiers();
         gameOverUI.GameOverVerification();
         gameOverUI.WinVerification();

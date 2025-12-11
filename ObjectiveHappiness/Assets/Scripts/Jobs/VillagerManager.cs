@@ -122,10 +122,13 @@ public class VillagerManager : MonoBehaviour
         return instance.gameObject;
     }
 
-    void SpawnRandom(JobType type, string jobname)
+    public void SpawnRandom(JobType type, string jobname)
     {
-        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "Vagabonde", 100);
+        bool vagabon = false;
+        if (Random.Range(1, 10) == 5) { vagabon =true; }
+        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), vagabon, "Vagabonde", 100);
     }
+
     void CheckList()
     {
         foreach (Transform child in parent.transform)
