@@ -17,6 +17,7 @@ public class IdentityManager : MonoBehaviour
     public TextMeshProUGUI action;
     public Slider energy;
     public TextMeshProUGUI energyvalue;
+    public Button RecoMason, RecoLumberjack, RecoMiner, RecoFarmer;
 
     private bool isOpen = false;
     private IJobInterface lastVillager;
@@ -67,6 +68,11 @@ public class IdentityManager : MonoBehaviour
         action.text = "Action : " + IDaction;
         energy.value = IDenergie;
         energyvalue.text = IDenergie.ToString();
+    }
+
+    public void Reconversion()
+    {
+        // TODO
     }
 
     // VillagerManager.Instance.ConvertInto(currentVillager, VillagerManager.JobType.Mason);

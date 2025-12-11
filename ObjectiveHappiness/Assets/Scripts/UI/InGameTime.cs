@@ -20,6 +20,7 @@ public class InGameTime : MonoBehaviour
     public Button start;
     bool isPaused = true;
     public float workTime = 10f;
+    public Image day, night;
 
     private void Awake()
     {
@@ -95,11 +96,15 @@ public class InGameTime : MonoBehaviour
                 if (intheure == 480)
                 {
                     VillagerManager.Instance.StartWork();
+                    day.gameObject.SetActive(true);
+                    night.gameObject.SetActive(false);
                 }
 
                 if (intheure == 1140)
                 {
                     VillagerManager.Instance.StartNight();
+                    day.gameObject.SetActive(false);
+                    night.gameObject.SetActive(true); 
                 }
 
                 if (intheure >= 1440)
