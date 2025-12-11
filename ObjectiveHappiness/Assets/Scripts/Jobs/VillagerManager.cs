@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Jobs.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -131,8 +132,11 @@ public class VillagerManager : MonoBehaviour
 
     public void SpawnRandom(JobType type, string jobname)
     {
-        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "Vagabonde", 100);
+        bool vagabon = false;
+        if (Random.Range(1, 10) == 5) { vagabon =true; }
+        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), vagabon, "Vagabonde", 100);
     }
+
     void CheckList()
     {
         foreach (Transform child in parent.transform)
@@ -162,6 +166,10 @@ public class VillagerManager : MonoBehaviour
         Debug.Log("Conversion terminée !");
     }
 
-
+    public void KillVillager(Transform transform)
+    {
+        GameObject villager = transform.gameObject;
+        Destroy(villager);
+    }
 
 }
