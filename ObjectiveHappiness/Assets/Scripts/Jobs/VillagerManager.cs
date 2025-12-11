@@ -186,7 +186,22 @@ public class VillagerManager : MonoBehaviour
     public void ConvertInto(GameObject prevJob, JobType newJob)
     {
         IJobInterface villager = prevJob.GetComponent<IJobInterface>();
-        SpawnPNJ(newJob, villager.Pseudo, newJob.ToString(), villager.Age, villager.Vagabond, "idle", villager.Energy);
+        if (newJob == JobType.Mason)
+        {
+            SpawnPNJ(newJob, villager.Pseudo, "Maçon", villager.Age, villager.Vagabond, "idle", villager.Energy);
+        }
+        if (newJob == JobType.Lumberjack)
+        {
+            SpawnPNJ(newJob, villager.Pseudo, "Bûcheron", villager.Age, villager.Vagabond, "idle", villager.Energy);
+        }
+        if (newJob == JobType.Farmer)
+        {
+            SpawnPNJ(newJob, villager.Pseudo, "Récolteur", villager.Age, villager.Vagabond, "idle", villager.Energy);
+        }
+        if (newJob == JobType.Miner)
+        {
+            SpawnPNJ(newJob, villager.Pseudo, "Mineur", villager.Age, villager.Vagabond, "idle", villager.Energy);
+        }
         Destroy(prevJob);
     }
 
