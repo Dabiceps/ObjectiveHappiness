@@ -15,5 +15,6 @@ MonoBehaviour:
   buildingName: "Mus\xE9e"
   prefab: {fileID: 5937791359863073865, guid: 8aa71d3f8f1a47b4f9b2a7ac21cf94b1, type: 3}
   ghostPrefab: {fileID: 7705850095172483563, guid: 3700e3517cb4fa340b00d5a7d182f517, type: 3}
+  placementRadius: 1
   costWood: 50
   costStone: 80

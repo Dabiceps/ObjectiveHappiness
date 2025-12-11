@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1208355199747156896}
   - component: {fileID: 552156132527915380}
   - component: {fileID: 5146008235628353649}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4349487540730668940}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sol Buisson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 4976319444518713705}
   - component: {fileID: 8880265535146820743}
   - component: {fileID: 7179486809285158746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

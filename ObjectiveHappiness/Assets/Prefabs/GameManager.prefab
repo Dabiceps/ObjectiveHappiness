@@ -50,10 +50,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostHeightOffset: 0.5
   navMeshSurface: {fileID: 0}
-  constructionSitePrefab: {fileID: 6548593111137344478, guid: 41885863cab2cff45b08ea357f177371, type: 3}
+  constructionSitePrefab: {fileID: 6879623480332488400, guid: 314221e6728e69a4d8f1e6d1da1ef6cc, type: 3}
   buildableLayer:
     serializedVersion: 2
     m_Bits: 8
+  nonBuildableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  buildingLayer:
+    serializedVersion: 2
+    m_Bits: 256
   maxPlacementDistance: 100
   parent: {fileID: 0}
 --- !u!114 &1876255501839555154
@@ -88,7 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  idManager: {fileID: 0}
 --- !u!114 &7840943572557577439
 MonoBehaviour:
   m_ObjectHideFlags: 0

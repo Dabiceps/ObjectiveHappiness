@@ -1,20 +1,24 @@
-using System.Resources;
+ï»¿using System.Resources;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager Instance;
 
     [Header("Ghost Settings")]
-    public float ghostHeightOffset = 0.5f; // distance au-dessus du sol
+    public float ghostHeightOffset = 0.5f;
     public NavMeshSurface navMeshSurface;
 
     [Header("Construction site")]
     public GameObject constructionSitePrefab;
 
+    [Header("Placement Rules")]
     public LayerMask buildableLayer;
+    public LayerMask nonBuildableLayer;
+    public LayerMask buildingLayer;
     public float maxPlacementDistance = 100f;
 
     private BuildingData currentData;
@@ -32,7 +36,7 @@ public class BuildingManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning("Plus d’un BuildingManager détecté dans la scène ! Un a été supprimé.");
+            Debug.LogWarning("Plus dâ€™un BuildingManager dÃ©tectÃ© dans la scÃ¨ne ! Un a Ã©tÃ© supprimÃ©.");
             Destroy(gameObject);
             return;
         }
@@ -48,6 +52,9 @@ public class BuildingManager : MonoBehaviour
         HandlePlacementInput();
     }
 
+    // ----------------------------
+    // START PLACING
+    // ----------------------------
     public void StartPlacing(BuildingData data)
     {
         if (!HasResources(data))
@@ -62,37 +69,51 @@ public class BuildingManager : MonoBehaviour
         isPlacing = true;
     }
 
+    // ----------------------------
+    // GHOST MOVEMENT
+    // ----------------------------
     void HandleGhostMovement()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
         if (Physics.Raycast(ray, out RaycastHit hit, maxPlacementDistance, buildableLayer))
         {
             Vector3 ghostPos = hit.point;
-            ghostPos.y += ghostHeightOffset;  // Décalage pour ne pas clipper
+            
             currentGhost.transform.position = ghostPos;
-
-
-            bool valid = IsPlacementValid(hit.point);
-
+            bool valid = IsPlacementValid(hit.point); 
+            SetGhostColor(valid ? Color.green : Color.red);
+        }
+ 
+        if (Physics.Raycast(ray, out RaycastHit hit2, maxPlacementDistance, nonBuildableLayer))
+        {
+            Vector3 ghostPos = hit2.point;
+            
+            currentGhost.transform.position = ghostPos;
+            bool valid = IsPlacementValid(hit2.point); 
             SetGhostColor(valid ? Color.green : Color.red);
         }
 
-        if (Input.GetMouseButton(1))
-        {
-            CancelPlacement();
-        }
-
-        if (Input.GetMouseButton(2))
+            if (Input.GetMouseButton(2))
         {
             currentGhost.transform.Rotate(Vector3.up, 1f);
         }
-
     }
 
+    // ----------------------------
+    // INPUT VALIDATION
+    // ----------------------------
     void HandlePlacementInput()
     {
-        // Valider
+        // EmpÃªche la pose si la souris est sur un Ã©lÃ©ment UI
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                CancelPlacement();
+                return;
+            }
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             if (TryPlaceBuilding())
@@ -101,13 +122,15 @@ public class BuildingManager : MonoBehaviour
             }
         }
 
-        // Annuler
         if (Input.GetMouseButtonDown(1))
         {
             CancelPlacement();
         }
     }
 
+    // ----------------------------
+    // PLACEMENT
+    // ----------------------------
     bool TryPlaceBuilding()
     {
         Vector3 pos = currentGhost.transform.position;
@@ -118,11 +141,9 @@ public class BuildingManager : MonoBehaviour
 
         SpendResources(currentData);
 
-        // On instancie un chantier
         var site = Instantiate(constructionSitePrefab, pos, rot);
-        site.transform.SetParent(parent.transform, worldPositionStays: true);
+        site.transform.SetParent(parent.transform, true);
 
-        // On renseigne quel bâtiment sera construit
         ConstructionSite cs = site.GetComponent<ConstructionSite>();
         cs.buildingData = currentData;
 
@@ -146,27 +167,45 @@ public class BuildingManager : MonoBehaviour
         currentData = null;
     }
 
+    // ----------------------------
+    // VALIDATION + OVERLAP CHECK
+    // ----------------------------
     bool IsPlacementValid(Vector3 pos)
     {
-        
-        // Ici tu peux ajouter :
-        // - overlap check
-        // - grid alignment
-        // - zone constraints
+        float radius = currentData.placementRadius;
 
-        return true; // Pour l’instant toujours valide
+        // Zone non-constructible
+        if (Physics.CheckSphere(pos, radius, nonBuildableLayer))
+            return false;
+        if (Physics.CheckSphere(pos, radius, buildingLayer))
+            return false;
+
+
+            // Collision avec bÃ¢timents existants
+            Collider[] overlap = Physics.OverlapSphere(pos, radius, buildingLayer);
+        if (overlap.Length > 0)
+            return false;
+
+        return true;
     }
 
+    // ----------------------------
+    // GHOST COLOR
+    // ----------------------------
     void SetGhostColor(Color c)
     {
         foreach (Renderer r in currentGhost.GetComponentsInChildren<Renderer>())
         {
-            r.material.color = c;
+            foreach (var mat in r.materials)
+            {
+                mat.color = c;
+            }
         }
     }
 
-    // ---------------- RESSOURCES ----------------
-
+    // ----------------------------
+    // RESSOURCES
+    // ----------------------------
     bool HasResources(BuildingData data)
     {
         return ResourceManager.Instance.wood >= data.costWood &&

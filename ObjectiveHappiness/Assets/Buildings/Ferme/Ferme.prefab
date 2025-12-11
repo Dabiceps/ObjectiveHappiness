@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 874161365133597672}
   - component: {fileID: 8662178787943421759}
   - component: {fileID: 4751052770717880918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ferme
   m_TagString: Ferme
   m_Icon: {fileID: 0}

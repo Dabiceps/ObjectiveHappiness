@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2023698205801968313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sol Foret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 953340557560726105}
   - component: {fileID: 994689162722687986}
   - component: {fileID: 2663040900978960602}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 2139122491274897719}
   - component: {fileID: 3787538597272116760}
   - component: {fileID: 1672906140676389893}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

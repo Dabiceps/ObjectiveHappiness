@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2630390774145880710}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sol Buildable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5741831552353822928}
   - component: {fileID: 7556024903480684090}
   - component: {fileID: 5747816489493545254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 1840055255032018170}
   - component: {fileID: 7543650016517352943}
   - component: {fileID: 8310806295369753123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Ground
   m_Icon: {fileID: 0}

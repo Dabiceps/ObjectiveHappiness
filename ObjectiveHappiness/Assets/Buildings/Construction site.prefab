@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6827350127599832135}
   - component: {fileID: 6895027324880337772}
   - component: {fileID: 3634772230258790504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Construction site
   m_TagString: construction_site
   m_Icon: {fileID: 0}

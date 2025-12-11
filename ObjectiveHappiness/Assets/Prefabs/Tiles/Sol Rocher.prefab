@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3381910028030746693}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sol Rocher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2346969199295828280}
   - component: {fileID: 6373793516485076027}
   - component: {fileID: 4973659516176556851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 7543735538191723607}
   - component: {fileID: 6631951206439077525}
   - component: {fileID: 9081389756728169117}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

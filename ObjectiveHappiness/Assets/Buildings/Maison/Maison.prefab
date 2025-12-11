@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1165540345258679098}
   - component: {fileID: 3994887764181450147}
   - component: {fileID: 8545913351756523387}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Maison
   m_TagString: Maison
   m_Icon: {fileID: 0}

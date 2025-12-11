@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2470917208529704841}
   - component: {fileID: 4803338944397449906}
   - component: {fileID: -4786649723948662173}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Mus\xE9e"
   m_TagString: Musee
   m_Icon: {fileID: 0}

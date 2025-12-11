@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7645162023412583818}
   - component: {fileID: 9125678615173994670}
   - component: {fileID: -1117683031017022862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ecole
   m_TagString: Ecole
   m_Icon: {fileID: 0}

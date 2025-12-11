@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8996292590699053992}
   - component: {fileID: 1129045274482435462}
   - component: {fileID: 2275360910925425760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Librairie
   m_TagString: Librairie
   m_Icon: {fileID: 0}
