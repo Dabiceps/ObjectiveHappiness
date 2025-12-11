@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Jobs.LowLevel.Unsafe;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
@@ -111,6 +112,7 @@ public class Villager : MonoBehaviour, IJobInterface
                     Animator animator = GetComponent<Animator>();
                     if (agent != null)
                     {
+                        agent.isStopped = false;
                         agent.SetDestination(building.position);
                         animator?.SetBool("isWalking", true);
                         actionText = "Va au travail";
@@ -283,4 +285,65 @@ public class Villager : MonoBehaviour, IJobInterface
         Energy = energy;
         JobName = jobname;
     }
+
+    public void GoToSchool(GameObject prevJob, VillagerManager.JobType type)
+    {
+        Debug.Log($"{Pseudo} va à l'école pour se reconvertir.");
+        foreach (Transform building in GameObject.Find("Buildings").transform)
+        {
+            if (building != null && building.CompareTag("Ecole"))
+            {
+                Building building1 = building.GetComponent<Building>();
+                if (building1 != null)
+                {
+                    NavMeshAgent agent = GetComponent<NavMeshAgent>();
+                    Animator animator = GetComponent<Animator>();
+                    if (agent != null)
+                    {
+                        Debug.Log($"{Pseudo} se rend à l'école pour se reconvertir.");
+                        agent.ResetPath();
+                        agent.isStopped = true;
+                        StopAllCoroutines();
+                        agent.SetDestination(building.position);
+                        agent.isStopped = false;
+                        animator?.SetBool("isWalking", true);
+                        actionText = "Se reconvertit";
+
+                        building1.isUsed = true;
+                        isWorking = true;
+
+                        if (JobRoutine != null) StopCoroutine(JobRoutine);
+                        JobRoutine = StartCoroutine(WaitUntilArrivedSchool(prevJob, type));
+                        return;
+                    }
+                }
+            }
+
+
+
+        }
+    }
+
+
+    public IEnumerator WaitUntilArrivedSchool(GameObject prevJob, VillagerManager.JobType type)
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        if (agent == null)
+        {
+            yield break;
+        }
+        yield return new WaitUntil(() => !agent.pathPending);
+        yield return new WaitUntil(() =>
+            agent.remainingDistance <= agent.stoppingDistance &&
+            (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+        );
+        Animator animator = GetComponent<Animator>();
+        animator?.SetBool("isWalking", false);
+        isWorking = false;
+        JobRoutine = null;
+        VillagerManager.Instance.DoConvert(prevJob, type);
+        yield return null;
+    }
+
+
 }

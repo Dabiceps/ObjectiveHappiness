@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LibrairieData
   m_EditorClassIdentifier: 
   buildingName: Librairie
-  prefab: {fileID: 1249206136988829910, guid: 6f2258a76202eaa4bbfd6adb3ee0fb24, type: 3}
-  ghostPrefab: {fileID: 3380072885350226705, guid: 7fdbf3dd74c22d34ebe96723c69d98ad, type: 3}
-  placementRadius: 1
+  prefab: {fileID: 3029796682108037399, guid: 0b340e1114baa004e93d04ce57e2c7dd, type: 3}
+  ghostPrefab: {fileID: 5159854225562174409, guid: a9e198e9f20090546be684419a46a6dd, type: 3}
+  placementRadius: 6
   costWood: 70
   costStone: 20

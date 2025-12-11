@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: "Mus\xE9eData"
   m_EditorClassIdentifier: 
   buildingName: "Mus\xE9e"
-  prefab: {fileID: 5937791359863073865, guid: 8aa71d3f8f1a47b4f9b2a7ac21cf94b1, type: 3}
-  ghostPrefab: {fileID: 7705850095172483563, guid: 3700e3517cb4fa340b00d5a7d182f517, type: 3}
-  placementRadius: 1
+  prefab: {fileID: 7781156189932633882, guid: ab96fcbc4dbf109439d54e337df79632, type: 3}
+  ghostPrefab: {fileID: 25275069108957378, guid: 5f48a469d38516f4bb819b6210172afb, type: 3}
+  placementRadius: 9
   costWood: 50
   costStone: 80

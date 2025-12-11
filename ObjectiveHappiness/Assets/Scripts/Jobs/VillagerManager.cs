@@ -140,26 +140,20 @@ public class VillagerManager : MonoBehaviour
 
     public void ConvertInto(GameObject prevJob, JobType newJob)
     {
-        IJobInterface villager = prevJob.GetComponent<IJobInterface>();
-        if (newJob == JobType.Mason)
-        {
-            SpawnPNJ(newJob, villager.Pseudo, "Maçon", villager.Age, villager.Vagabond, "idle", villager.Energy);
-        }
-        if (newJob == JobType.Lumberjack)
-        {
-            SpawnPNJ(newJob, villager.Pseudo, "Bûcheron", villager.Age, villager.Vagabond, "idle", villager.Energy);
-        }
-        if (newJob == JobType.Farmer)
-        {
-            SpawnPNJ(newJob, villager.Pseudo, "Récolteur", villager.Age, villager.Vagabond, "idle", villager.Energy);
-        }
-        if (newJob == JobType.Miner)
-        {
-            SpawnPNJ(newJob, villager.Pseudo, "Mineur", villager.Age, villager.Vagabond, "idle", villager.Energy);
-        }
-        Destroy(prevJob);
+        IJobInterface villager = prevJob.GetComponent<IJobInterface>();  
+        villager.GoToSchool(prevJob, newJob);
     }
 
+    public void DoConvert(GameObject prevJob, JobType newJob)
+    {
+        IJobInterface villager = prevJob.GetComponent<IJobInterface>();
+        GameObject newVillager = SpawnPNJ(newJob, villager.Pseudo, villager.JobName, villager.Age, villager.Vagabond, villager.actionText, villager.Energy);
+        newVillager.transform.position = prevJob.transform.position;
+        villagers.Add(newVillager.transform);
+        villagers.Remove(prevJob.transform);
+        Destroy(prevJob);
+        Debug.Log("Conversion terminée !");
+    }
 
 
 

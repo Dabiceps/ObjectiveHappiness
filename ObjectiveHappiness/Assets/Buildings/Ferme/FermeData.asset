@@ -15,6 +15,6 @@ MonoBehaviour:
   buildingName: Ferme
   prefab: {fileID: 5601282269730396511, guid: d3e456d4e2a26f042892815514f09073, type: 3}
   ghostPrefab: {fileID: 9134331674579275539, guid: 7dce1651a872a0044ae7142edc6ec228, type: 3}
-  placementRadius: 1
+  placementRadius: 6
   costWood: 50
   costStone: 20

@@ -23,4 +23,6 @@ public interface IJobInterface
 
     void DoSleep();
 
+    void GoToSchool(GameObject prevJob, VillagerManager.JobType newJob);
+
 }
