@@ -647,6 +647,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3913979455026228353, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4544557257168003011, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1362,7 +1366,7 @@ PrefabInstance:
       objectReference: {fileID: 245861331}
     - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: food
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1876255501839555154, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: residents
