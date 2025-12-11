@@ -1,7 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.Jobs.LowLevel.Unsafe;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
