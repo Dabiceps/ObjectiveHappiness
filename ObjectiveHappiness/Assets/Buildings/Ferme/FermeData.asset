@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FermeData
   m_EditorClassIdentifier: 
   buildingName: Ferme
-  prefab: {fileID: 1501558789451409385, guid: 5af0a2bb9ca895e47be4c7073a2c4924, type: 3}
-  ghostPrefab: {fileID: 8487142041209640788, guid: 165fa7dc5f0c5894db935bc30ad1b137, type: 3}
+  prefab: {fileID: 5601282269730396511, guid: d3e456d4e2a26f042892815514f09073, type: 3}
+  ghostPrefab: {fileID: 9134331674579275539, guid: 7dce1651a872a0044ae7142edc6ec228, type: 3}
   placementRadius: 1
   costWood: 50
   costStone: 20

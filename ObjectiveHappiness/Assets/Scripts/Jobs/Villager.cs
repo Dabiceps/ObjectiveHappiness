@@ -49,8 +49,31 @@ public class Villager : MonoBehaviour, IJobInterface
         // Le villageois N’EST PLUS en train de travailler
         isWorking = false;
 
-        // Va dormir
-        DoSleep();
+        if (!Vagabond)
+        {
+            foreach (Transform transform in GameObject.Find("Buildings").transform)
+            {
+                if (transform != null && transform.CompareTag("Maison"))
+                {
+                    Building building1 = transform.GetComponent<Building>();
+                    if (building1 != null)
+                    {
+                        if (agent != null)
+                        {
+                            agent.SetDestination(transform.position);
+                            anim?.SetBool("isWalking", true);
+                            actionText = "Rentre à la maison";
+                            building1.isUsed = true;
+                            if (JobRoutine != null) StopCoroutine(JobRoutine);
+                            JobRoutine = StartCoroutine(WaitUntilArrived());
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        // Si vagabond ou pas de maison trouvée, on part vagabonder
+        JobRoutine = StartCoroutine(WanderRoutine());
     }
 
 
@@ -90,6 +113,7 @@ public class Villager : MonoBehaviour, IJobInterface
                     {
                         agent.SetDestination(building.position);
                         animator?.SetBool("isWalking", true);
+                        actionText = "Va au travail";
 
                         building1.isUsed = true;
 
@@ -148,6 +172,7 @@ public class Villager : MonoBehaviour, IJobInterface
     {
         Animator animator = GetComponent<Animator>();
         animator?.SetBool("isWalking", false);
+        actionText = $"Travaille";
 
         while (InGameTime.Instance != null &&
                InGameTime.Instance.intheure >= 480 &&
@@ -182,11 +207,9 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public virtual void DoSleep()
     {
-        Debug.Log($"{Pseudo} dort");
-        // Par défaut on ne force pas un new Wander si on est déjà en JobRoutine null,
-        // mais on peut explicitement lancer le vagabondage si aucune coroutine n'est active.
-        if (JobRoutine == null)
-            JobRoutine = StartCoroutine(WanderRoutine());
+        actionText = "Dort pour récupérer de l'énergie";
+        Animator animator = GetComponent<Animator>();
+        animator?.SetBool("isWalking", false);
         Energy = 100;
         IdentityManager.Instance.UpdateEnergy();
     }
@@ -199,7 +222,7 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public IEnumerator WanderRoutine()
     {
-        Debug.Log($"{Pseudo} vagabonde");
+        actionText = "Vagabonde";
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         Animator animator = GetComponent<Animator>();
 

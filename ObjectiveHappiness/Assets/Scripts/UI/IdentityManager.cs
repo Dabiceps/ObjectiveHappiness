@@ -53,6 +53,7 @@ public class IdentityManager : MonoBehaviour
         if (!isOpen) return;
         energy.value = lastVillager.Energy;
         energyvalue.text = lastVillager.Energy.ToString();
+        action.text = "Action : " + lastVillager.actionText;
     }
     public void CloseMenu()
     {

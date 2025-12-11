@@ -175,7 +175,7 @@ public class BuildingManager : MonoBehaviour
         float radius = currentData.placementRadius;
 
         // Zone non-constructible
-        if (Physics.CheckSphere(pos, radius, nonBuildableLayer))
+        if (Physics.CheckSphere(pos, 2, nonBuildableLayer))
             return false;
         if (Physics.CheckSphere(pos, radius, buildingLayer))
             return false;

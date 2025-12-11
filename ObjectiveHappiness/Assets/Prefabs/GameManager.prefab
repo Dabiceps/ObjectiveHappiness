@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6759468983871802082}
   - component: {fileID: 7840943572557577439}
   - component: {fileID: 1263305249901486239}
+  - component: {fileID: 5139438508387949067}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -129,3 +130,27 @@ MonoBehaviour:
   resume: {fileID: 0}
   x2: {fileID: 0}
   x3: {fileID: 0}
+--- !u!114 &5139438508387949067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679997446547093190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d37b99077d0ff41a79b0b1e9b4a862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
+  pseudo: {fileID: 0}
+  job: {fileID: 0}
+  age: {fileID: 0}
+  vagabon: {fileID: 0}
+  action: {fileID: 0}
+  energyvalue: {fileID: 0}
+  energy: {fileID: 0}
+  RecoMason: {fileID: 0}
+  RecoLumberjack: {fileID: 0}
+  RecoMiner: {fileID: 0}
+  RecoFarmer: {fileID: 0}
