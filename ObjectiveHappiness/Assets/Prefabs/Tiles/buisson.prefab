@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4349487540730668940}
   m_Layer: 7
-  m_Name: Sol Buisson
+  m_Name: buisson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

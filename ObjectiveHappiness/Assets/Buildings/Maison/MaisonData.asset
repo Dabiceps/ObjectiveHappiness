@@ -26,5 +26,6 @@ MonoBehaviour:
   - {fileID: 3941507338223336825, guid: 25e48b0ac00165d4b903cefb2fa6ca10, type: 3}
   - {fileID: 2518479797642981217, guid: 0eae1ccfbafd7d74fbfce31ad318c67e, type: 3}
   placementRadius: 1
+  placementHeightOffset: 1.5
   costWood: 20
   costStone: 30

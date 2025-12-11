@@ -15,6 +15,7 @@ public class RandomTileMapGenerator : MonoBehaviour
     {
         GenerateMap();
         navMeshSurface.BuildNavMesh();
+        NatureSpawner.Instance.SpawnAll();
     }
 
     void GenerateMap()

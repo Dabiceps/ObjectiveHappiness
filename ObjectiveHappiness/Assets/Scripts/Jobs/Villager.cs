@@ -24,7 +24,7 @@ public class Villager : MonoBehaviour, IJobInterface
     // Remis en virtual pour que les sous-classes puissent override proprement
     public virtual void EndJob()
     {
-        Debug.Log($"{Pseudo} finit sa journée.");
+        isWorking = false;
 
         // Stopper toute coroutine active
         if (JobRoutine != null)
@@ -49,7 +49,6 @@ public class Villager : MonoBehaviour, IJobInterface
 
         // Le villageois N’EST PLUS en train de travailler
         isWorking = false;
-
         if (!Vagabond)
         {
             foreach (Transform transform in GameObject.Find("Buildings").transform)
@@ -57,10 +56,12 @@ public class Villager : MonoBehaviour, IJobInterface
                 if (transform != null && transform.CompareTag("Maison"))
                 {
                     Building building1 = transform.GetComponent<Building>();
-                    if (building1 != null)
+                    if (building1 != null && !building1.isUsed)
                     {
                         if (agent != null)
                         {
+                            Debug.Log("test6");
+                            agent.isStopped = false;
                             agent.SetDestination(transform.position);
                             anim?.SetBool("isWalking", true);
                             actionText = "Rentre à la maison";
@@ -162,7 +163,7 @@ public class Villager : MonoBehaviour, IJobInterface
         }
         else
         {
-            // fin de journée / nuit
+            Debug.Log("DORS");
             DoSleep();
         }
 
@@ -228,7 +229,8 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public IEnumerator WanderRoutine()
     {
-        Debug.Log($"{Pseudo} vagabonde");
+        actionText = "Vagabonde";
+        IdentityManager.Instance.UpdateAction(actionText);
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         Animator animator = GetComponent<Animator>();
 
@@ -239,6 +241,7 @@ public class Villager : MonoBehaviour, IJobInterface
             {
                 if (agent != null)
                 {
+                    agent.isStopped = false;
                     agent.SetDestination(randomPoint);
                     animator?.SetBool("isWalking", true);
 

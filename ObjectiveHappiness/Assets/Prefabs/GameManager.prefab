@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1263305249901486239}
   - component: {fileID: 5139438508387949067}
   - component: {fileID: 7574353984652012730}
+  - component: {fileID: 5227907823696257627}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -174,3 +175,31 @@ MonoBehaviour:
   - {fileID: 652113140344638589, guid: b73c5cd4943073c4599ce14c1a349d39, type: 3}
   mapSizeInTiles: 20
   navMeshSurface: {fileID: 0}
+--- !u!114 &5227907823696257627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679997446547093190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f764bf272315cb6418fe9d9ebe33753b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesParent: {fileID: 0}
+  natureParent: {fileID: 0}
+  bushes:
+    name: Buisson
+    variants: []
+    countPerTile: 3
+  rocks:
+    name: Rocher
+    variants: []
+    countPerTile: 3
+  trees:
+    name: Arbre
+    variants: []
+    countPerTile: 3
+  offsetMin: 1
+  offsetMax: 4
