@@ -1310,6 +1310,14 @@ PrefabInstance:
       propertyPath: navMeshSurface
       value: 
       objectReference: {fileID: 1670823965}
+    - target: {fileID: 1270042488778968734, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
+      propertyPath: buildingLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270042488778968734, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
+      propertyPath: nonBuildableLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1637655590979129000, guid: 065a8575446653b4abfb9f75194a8631, type: 3}
       propertyPath: DayDurationInSeconds
       value: 30

@@ -124,7 +124,7 @@ public class VillagerManager : MonoBehaviour
 
     void SpawnRandom(JobType type, string jobname)
     {
-        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "idle", 100);
+        SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "Vagabonde", 100);
     }
     void CheckList()
     {
@@ -143,19 +143,19 @@ public class VillagerManager : MonoBehaviour
         IJobInterface villager = prevJob.GetComponent<IJobInterface>();
         if (newJob == JobType.Mason)
         {
-            SpawnPNJ(newJob, villager.Pseudo, "Maçon", villager.Age, villager.Vagabond, "idle", villager.Energy);
+            SpawnPNJ(newJob, villager.Pseudo, "Maçon", villager.Age, villager.Vagabond, "Vagabonde", villager.Energy);
         }
         if (newJob == JobType.Lumberjack)
         {
-            SpawnPNJ(newJob, villager.Pseudo, "Bûcheron", villager.Age, villager.Vagabond, "idle", villager.Energy);
+            SpawnPNJ(newJob, villager.Pseudo, "Bûcheron", villager.Age, villager.Vagabond, "Vagabonde", villager.Energy);
         }
         if (newJob == JobType.Farmer)
         {
-            SpawnPNJ(newJob, villager.Pseudo, "Récolteur", villager.Age, villager.Vagabond, "idle", villager.Energy);
+            SpawnPNJ(newJob, villager.Pseudo, "Récolteur", villager.Age, villager.Vagabond, "Vagabonde", villager.Energy);
         }
         if (newJob == JobType.Miner)
         {
-            SpawnPNJ(newJob, villager.Pseudo, "Mineur", villager.Age, villager.Vagabond, "idle", villager.Energy);
+            SpawnPNJ(newJob, villager.Pseudo, "Mineur", villager.Age, villager.Vagabond, "Vagabonde", villager.Energy);
         }
         Destroy(prevJob);
     }

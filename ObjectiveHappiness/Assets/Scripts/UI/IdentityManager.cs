@@ -54,6 +54,14 @@ public class IdentityManager : MonoBehaviour
         energy.value = lastVillager.Energy;
         energyvalue.text = lastVillager.Energy.ToString();
     }
+
+    public void UpdateAction(string actualaction)
+    {
+        if (!isOpen) return;
+        action.text = actualaction;
+    }
+
+
     public void CloseMenu()
     {
         menu.SetActive(false);
@@ -65,7 +73,7 @@ public class IdentityManager : MonoBehaviour
         job.text = IDjob;
         age.text = IDage.ToString() + " ans";
         vagabon.text = "Vagabond : " + IDvagabon.ToString();
-        action.text = "Action : " + IDaction;
+        action.text = IDaction;
         energy.value = IDenergie;
         energyvalue.text = IDenergie.ToString();
     }
