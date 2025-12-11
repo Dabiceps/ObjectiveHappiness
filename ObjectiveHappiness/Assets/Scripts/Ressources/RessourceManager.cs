@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEditorInternal;
@@ -37,7 +38,20 @@ public class ResourceManager : MonoBehaviour
         if (food < 0)
         {
             food = 0;
+            int nbrkills = residents/3;
             residents -= residents/3;
+            
+            foreach (Transform villager in VillagerManager.Instance.villagers.ToList())
+            {
+                if (nbrkills != 0)
+                {
+                    VillagerManager.Instance.villagers.Remove(villager);
+                    VillagerManager.Instance.KillVillager(villager);
+                    nbrkills--;
+                }
+            }
+
+
         }
         else 
         {

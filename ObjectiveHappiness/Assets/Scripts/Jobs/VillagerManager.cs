@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Jobs.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -158,6 +159,10 @@ public class VillagerManager : MonoBehaviour
         Debug.Log("Conversion terminée !");
     }
 
-
+    public void KillVillager(Transform transform)
+    {
+        GameObject villager = transform.gameObject;
+        Destroy(villager);
+    }
 
 }
