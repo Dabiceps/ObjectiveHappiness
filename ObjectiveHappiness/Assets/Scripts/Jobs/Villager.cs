@@ -101,7 +101,12 @@ public class Villager : MonoBehaviour, IJobInterface
             return;
         }
 
-        // Parcours des bâtiments pour trouver une cible libre
+        Transform closestBuilding = null;
+        float closestDistance = Mathf.Infinity;
+
+        Vector3 agentPos = transform.position;
+
+        // Parcours des bâtiments pour trouver la cible libre la plus proche
         foreach (Transform building in buildingsParent.transform)
         {
             if (building != null && building.CompareTag(JobTarget))
@@ -109,29 +114,42 @@ public class Villager : MonoBehaviour, IJobInterface
                 Building building1 = building.GetComponent<Building>();
                 if (building1 != null && !building1.isUsed)
                 {
-                    NavMeshAgent agent = GetComponent<NavMeshAgent>();
-                    Animator animator = GetComponent<Animator>();
-                    if (agent != null)
+                    float distance = Vector3.Distance(agentPos, building.position);
+                    if (distance < closestDistance)
                     {
-                        agent.isStopped = false;
-                        agent.SetDestination(building.position);
-                        animator?.SetBool("isWalking", true);
-
-                        building1.isUsed = true;
-
-                        // Indiquer qu'on est en train de partir travailler
-                        isWorking = true;
-
-                        if (JobRoutine != null) StopCoroutine(JobRoutine);
-                        JobRoutine = StartCoroutine(WaitUntilArrived());
-                        return;
+                        closestDistance = distance;
+                        closestBuilding = building;
                     }
                 }
             }
         }
 
-        // si on n'a rien trouvé, on vagabonde
-        isWorking = false;
+        // Si on a trouvé une cible
+        if (closestBuilding != null)
+        {
+            Building building1 = closestBuilding.GetComponent<Building>();
+            if (building1 != null)
+            {
+                NavMeshAgent agent = GetComponent<NavMeshAgent>();
+                Animator animator = GetComponent<Animator>();
+
+                if (agent != null)
+                {
+                    agent.isStopped = false;
+                    agent.SetDestination(closestBuilding.position);
+                    animator?.SetBool("isWalking", true);
+
+                    building1.isUsed = true;
+                    isWorking = true;
+
+                    if (JobRoutine != null) StopCoroutine(JobRoutine);
+                    JobRoutine = StartCoroutine(WaitUntilArrived());
+                }
+            }
+        }
+
+    // si on n'a rien trouvé, on vagabonde
+    isWorking = false;
         JobRoutine = StartCoroutine(WanderRoutine());
     }
 

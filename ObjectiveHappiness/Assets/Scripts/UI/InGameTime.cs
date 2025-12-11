@@ -32,7 +32,7 @@ public class InGameTime : MonoBehaviour
         jour.text = "Jour : 1";
         heure.text = "Heure : 00:00";
         intjour = 1;
-        intheure = 400;
+        intheure = 470;
         globaltime = 0;
         temps = 0.5f;
         workTime = temps * 5;

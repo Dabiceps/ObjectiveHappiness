@@ -75,7 +75,11 @@ public class ResourceManager : MonoBehaviour
         //Calcul la nourriture récupérée en fonction du nombre de ferme
         if (type == "food")
         {
-            food = food + 1* CountBuilding("Ferme");
+            int multi = 0;
+            if(CountBuilding("Ferme") == 0) { multi = 1; }
+            else { multi = CountBuilding("Ferme"); }
+
+            food = food + 1 * multi;
         }
         if (type == "wood")
         {

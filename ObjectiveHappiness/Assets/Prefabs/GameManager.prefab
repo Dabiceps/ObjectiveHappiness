@@ -191,15 +191,21 @@ MonoBehaviour:
   natureParent: {fileID: 0}
   bushes:
     name: Buisson
-    variants: []
+    variants:
+    - {fileID: 919132149155446097, guid: 0a5bc164619197f43b4ca56d0f723635, type: 3}
+    - {fileID: 919132149155446097, guid: a03e752349178b54fb560ee3fa9ac416, type: 3}
     countPerTile: 3
   rocks:
     name: Rocher
-    variants: []
+    variants:
+    - {fileID: 919132149155446097, guid: e8cf5c60ae166444f8e31422e6ae0427, type: 3}
     countPerTile: 3
   trees:
     name: Arbre
-    variants: []
+    variants:
+    - {fileID: 9114999173344002582, guid: 3d547a8177c79e143b8d0fff49e295b5, type: 3}
+    - {fileID: 3577702134681031824, guid: dbc9913b06657d149b3a055cbfea9876, type: 3}
+    - {fileID: 7093794197945397771, guid: eb8b8f95258f5f043bea5bfc970c4431, type: 3}
     countPerTile: 3
   offsetMin: 1
   offsetMax: 4

@@ -6,7 +6,7 @@ public class Farmer : Villager
 {
     private void Awake()
     {
-        JobName = "Farmer";
+        JobName = "Harvester";
         JobTarget = "Buisson";
         JobRoutine = StartCoroutine(WanderRoutine());
 

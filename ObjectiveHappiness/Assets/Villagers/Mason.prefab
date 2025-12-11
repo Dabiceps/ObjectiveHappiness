@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2396233004390948251, guid: 6a90c0422e0c5e5428280be4ad6dce21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bab152f4da94e25459e8ea1fff650230, type: 2}
     - target: {fileID: 919132149155446097, guid: 6a90c0422e0c5e5428280be4ad6dce21, type: 3}
       propertyPath: m_Name
       value: Mason
@@ -153,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c47d33a9d765d147a03f391e6f4970a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWorking: 0
 --- !u!114 &-1684427770769821723
 MonoBehaviour:
   m_ObjectHideFlags: 0
