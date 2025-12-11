@@ -60,6 +60,7 @@ public class BuildingManager : MonoBehaviour
         if (!HasResources(data))
         {
             Debug.Log("Pas assez de ressources !");
+            ErrorPopUp.Instance.DisplayPopUp("Erreur : Manque de ressources !");
             return;
         }
 
