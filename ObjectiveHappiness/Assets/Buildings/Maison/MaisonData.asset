@@ -13,8 +13,18 @@ MonoBehaviour:
   m_Name: MaisonData
   m_EditorClassIdentifier: 
   buildingName: Maison
-  prefab: {fileID: 7970756486107012149, guid: 1027993351f7fab41aa5e3ac65258865, type: 3}
-  ghostPrefab: {fileID: 8562981065297062096, guid: 085960a4a51dab54993643daf7160fea, type: 3}
+  prefab: {fileID: 8862287512011184652, guid: 5eece41bd9f784a46a9ff1820e3055e3, type: 3}
+  ghostPrefab: {fileID: 3865874237412130512, guid: 92b9b13f2130c4d46a2cc1e9d52b9f9e, type: 3}
+  buildingVariants:
+  - {fileID: 8862287512011184652, guid: 5eece41bd9f784a46a9ff1820e3055e3, type: 3}
+  - {fileID: 3792878524359219151, guid: 49502f2be3ddfee4d9c6ff490ed35187, type: 3}
+  - {fileID: 2488358646395636652, guid: c7f4d514314542c46aa9c18acfe55ce1, type: 3}
+  - {fileID: 7069101366016792373, guid: a3060766848fe78499eb5e928433f9c8, type: 3}
+  - {fileID: 3756876392998544625, guid: afe4d35cc761a90469a4f6ff757c9abc, type: 3}
+  - {fileID: 4878231199241318645, guid: 289bcdd722547ad41a93b013471ed0cc, type: 3}
+  - {fileID: 4828728108545654606, guid: c1df2a103b3bc3e48b74157bd864effc, type: 3}
+  - {fileID: 3941507338223336825, guid: 25e48b0ac00165d4b903cefb2fa6ca10, type: 3}
+  - {fileID: 2518479797642981217, guid: 0eae1ccfbafd7d74fbfce31ad318c67e, type: 3}
   placementRadius: 1
   costWood: 20
   costStone: 30

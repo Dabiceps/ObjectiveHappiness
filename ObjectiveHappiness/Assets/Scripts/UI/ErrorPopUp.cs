@@ -27,5 +27,13 @@ public class ErrorPopUp : MonoBehaviour
     {
         errortext.text = text;
         popup.gameObject.SetActive(true);
+        StartCoroutine(HidePopUp());
     }
+
+    private IEnumerator HidePopUp()
+    {
+        yield return new WaitForSeconds(3);
+        popup.gameObject.SetActive(false);
+    }
+
 }

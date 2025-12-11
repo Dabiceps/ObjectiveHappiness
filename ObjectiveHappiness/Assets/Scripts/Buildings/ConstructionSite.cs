@@ -7,6 +7,7 @@ public class ConstructionSite : MonoBehaviour
     public static Action<ConstructionSite> OnSiteFinished;
 
     public BuildingData buildingData;
+    public GameObject finalPrefab;
     public float buildProgress = 0f;
     public float workPerTick = 5f;
 
@@ -38,20 +39,22 @@ public class ConstructionSite : MonoBehaviour
 
     void FinishConstruction()
     {
-        // On prévient d'abord les abonnés, puis on instancie et détruit
         OnSiteFinished?.Invoke(this);
 
-        if (buildingData != null && buildingData.prefab != null)
+        if (finalPrefab != null)
         {
-            var instance = Instantiate(buildingData.prefab, transform.position, transform.rotation);
+            Vector3 spawnPos = transform.position + Vector3.up * (buildingData?.placementHeightOffset ?? 0f);
+            var instance = Instantiate(finalPrefab, spawnPos, transform.rotation);
+
             var parent = GameObject.Find("Buildings");
             if (parent != null) instance.transform.SetParent(parent.transform);
         }
         else
         {
-            Debug.LogWarning("ConstructionSite: buildingData or prefab is null.");
+            Debug.LogWarning("ConstructionSite: finalPrefab is null.");
         }
 
         Destroy(gameObject);
     }
+
 }

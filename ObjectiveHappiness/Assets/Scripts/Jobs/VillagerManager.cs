@@ -113,8 +113,15 @@ public class VillagerManager : MonoBehaviour
     {
         var prefab = jobPrefabs[type];
 
+        float mapSize = 20 * 10;
+        float half = mapSize / 2f;
+
         var instance = Instantiate(prefab, Vector3.zero, Quaternion.identity);
         instance.transform.SetParent(parent.transform, worldPositionStays: true);
+        Vector3 pos = instance.transform.position;
+        pos.x = half;
+        pos.z = half;
+        instance.transform.localPosition = pos;
 
         var jobInterface = instance.GetComponent<IJobInterface>();
         jobInterface.InitializeIdentity(pseudo, jobname, age, vagabon, action, energy);
@@ -122,7 +129,7 @@ public class VillagerManager : MonoBehaviour
         return instance.gameObject;
     }
 
-    void SpawnRandom(JobType type, string jobname)
+    public void SpawnRandom(JobType type, string jobname)
     {
         SpawnPNJ(type, pseudoslist[Random.Range(0, pseudoslist.Count)], jobname, Random.Range(1, 20), false, "Vagabonde", 100);
     }

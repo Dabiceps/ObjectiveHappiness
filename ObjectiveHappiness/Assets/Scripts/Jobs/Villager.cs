@@ -293,38 +293,48 @@ public class Villager : MonoBehaviour, IJobInterface
     public void GoToSchool(GameObject prevJob, VillagerManager.JobType type)
     {
         Debug.Log($"{Pseudo} va à l'école pour se reconvertir.");
+
+        Transform school = null;
+
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
             if (building != null && building.CompareTag("Ecole"))
             {
-                Building building1 = building.GetComponent<Building>();
-                if (building1 != null)
-                {
-                    NavMeshAgent agent = GetComponent<NavMeshAgent>();
-                    Animator animator = GetComponent<Animator>();
-                    if (agent != null)
-                    {
-                        Debug.Log($"{Pseudo} se rend à l'école pour se reconvertir.");
-                        agent.ResetPath();
-                        agent.isStopped = true;
-                        StopAllCoroutines();
-                        agent.SetDestination(building.position);
-                        agent.isStopped = false;
-                        animator?.SetBool("isWalking", true);
-                        actionText = "Se reconvertit";
-
-                        building1.isUsed = true;
-                        isWorking = true;
-
-                        if (JobRoutine != null) StopCoroutine(JobRoutine);
-                        JobRoutine = StartCoroutine(WaitUntilArrivedSchool(prevJob, type));
-                        return;
-                    }
-                }
+                school = building;
+                break; // On a trouvé une école, pas besoin de continuer la boucle
             }
+        }
 
+        if (school == null)
+        {
+            // Aucune école trouvée
+            ErrorPopUp.Instance.DisplayPopUp("Aucune école n'a été construite dans le village !");
+            return;
+        }
 
+        // Si on a trouvé une école, on continue
+        Building buildingComponent = school.GetComponent<Building>();
+        if (buildingComponent == null)
+            return;
 
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        Animator animator = GetComponent<Animator>();
+        if (agent != null)
+        {
+            Debug.Log($"{Pseudo} se rend à l'école pour se reconvertir.");
+            agent.ResetPath();
+            agent.isStopped = true;
+            StopAllCoroutines();
+            agent.SetDestination(school.position);
+            agent.isStopped = false;
+            animator?.SetBool("isWalking", true);
+            actionText = "Se reconvertit";
+
+            buildingComponent.isUsed = true;
+            isWorking = true;
+
+            if (JobRoutine != null) StopCoroutine(JobRoutine);
+            JobRoutine = StartCoroutine(WaitUntilArrivedSchool(prevJob, type));
         }
     }
 

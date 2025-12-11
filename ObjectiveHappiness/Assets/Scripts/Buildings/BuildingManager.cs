@@ -142,14 +142,36 @@ public class BuildingManager : MonoBehaviour
 
         SpendResources(currentData);
 
+        // -------------------------------------------
+        // CHOIX DE LA VARIANTE DU BÂTIMENT
+        // -------------------------------------------
+        GameObject finalPrefab;
+
+        if (currentData.buildingVariants != null && currentData.buildingVariants.Length > 0)
+        {
+            // Choisit une variante au hasard
+            int r = Random.Range(0, currentData.buildingVariants.Length);
+            finalPrefab = currentData.buildingVariants[r];
+        }
+        else
+        {
+            // Sinon, utilise le prefab “de base”
+            finalPrefab = currentData.prefab;
+        }
+        // -------------------------------------------
+
+        // Spawn du chantier
         var site = Instantiate(constructionSitePrefab, pos, rot);
         site.transform.SetParent(parent.transform, true);
 
+        // On dit au chantier quel prefab il devra construire
         ConstructionSite cs = site.GetComponent<ConstructionSite>();
         cs.buildingData = currentData;
+        cs.finalPrefab = finalPrefab;   // <-- AJOUT IMPORTANT
 
         return true;
     }
+
 
     void EndPlacement()
     {
