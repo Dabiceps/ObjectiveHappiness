@@ -11,7 +11,7 @@ public class Mason : Villager
     private void Awake()
     {
         // override du job target
-        JobName = "Mason";
+        JobName = "TEST";
         JobTarget = "construction_site";
     }
 

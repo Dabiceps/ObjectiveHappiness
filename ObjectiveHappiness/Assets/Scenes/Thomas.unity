@@ -145,8 +145,8 @@ MonoBehaviour:
   age: {fileID: 627627634}
   vagabon: {fileID: 1492148634}
   action: {fileID: 507567952}
-  energy: {fileID: 1288957005}
   energyvalue: {fileID: 677409325}
+  energy: {fileID: 1288957005}
   RecoMason: {fileID: 1490720291}
   RecoLumberjack: {fileID: 1490720290}
   RecoMiner: {fileID: 1490720289}
@@ -605,6 +605,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452200306509249237, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8bacfd27d6cd4a418a548e913c4b885, type: 3}
     - target: {fileID: 3491741929796949041, guid: bbbce1977326e5042b7b64d78013b253, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
