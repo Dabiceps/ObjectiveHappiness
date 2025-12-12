@@ -198,7 +198,6 @@ public class Villager : MonoBehaviour, IJobInterface
             {
                 DoJob();
                 actionText = "Travail";
-                IdentityManager.Instance.UpdateAction("Travail");
                 if (Vagabond == false)
                 {
                     Energy--;
@@ -233,7 +232,6 @@ public class Villager : MonoBehaviour, IJobInterface
         Energy = 100;
         IdentityManager.Instance.UpdateEnergy();
         actionText = "Dort";
-        IdentityManager.Instance.UpdateAction("Dort");
     }
 
     public void Vagabonder()
@@ -245,7 +243,6 @@ public class Villager : MonoBehaviour, IJobInterface
     public IEnumerator WanderRoutine()
     {
         actionText = "Vagabonde";
-        IdentityManager.Instance.UpdateAction(actionText);
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         Animator animator = GetComponent<Animator>();
 
