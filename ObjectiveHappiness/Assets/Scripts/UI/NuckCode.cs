@@ -9,13 +9,6 @@ public class NuckCode : MonoBehaviour
 
     private void Start()
     {
-        nukebutton.onClick.AddListener(() => ExitGame());
-    }
-
-    private void ExitGame()
-    {
-        Debug.Log("CA CLIQUE ???");
-        Application.Quit();
     }
 }
 

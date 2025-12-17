@@ -27,6 +27,7 @@ public class GameOverUI : MonoBehaviour
             buildManager.SetActive(false);
             resourcesManager.SetActive(false);
             gameoverScreen.SetActive(true);
+
         }
     }
 
@@ -37,6 +38,13 @@ public class GameOverUI : MonoBehaviour
             buildManager.SetActive(false);
             resourcesManager.SetActive(false);
             victoryScreen.SetActive(true);
+            Exitgame();
         }
+    }
+
+    IEnumerator Exitgame()
+    {
+        yield return new WaitForSeconds(30f);
+        Application.Quit();
     }
 }

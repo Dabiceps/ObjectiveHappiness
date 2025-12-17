@@ -63,11 +63,6 @@ public class ResourceManager : MonoBehaviour
     // Méthode qui calcul le nombre de ressources récupéré en fonction du type (food/wood/stone)
     public void ResourceRecovery(string type)
     {
-        // Cas de  base
-        if (type != "food" ||type != "wood" || type != "stone")
-        {
-            Console.WriteLine("Erreur : mauvais type de ressource");
-        }
         //Calcul la nourriture récupérée en fonction du nombre de ferme
         if (type == "food")
         {
