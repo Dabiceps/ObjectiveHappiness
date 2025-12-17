@@ -37,7 +37,6 @@ public class ResourceManager : MonoBehaviour
             food = 0;
             int nbrkills = residents/3;
             residents -= residents/3;
-            
             foreach (Transform villager in VillagerManager.Instance.villagers.ToList())
             {
                 if (nbrkills != 0)
