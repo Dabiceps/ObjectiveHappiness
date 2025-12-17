@@ -15,12 +15,6 @@ public class NuckCode : MonoBehaviour
     private void ExitGame()
     {
         Debug.Log("CA CLIQUE ???");
-        StartCoroutine(QuitAfterDelay());
-    }
-
-    IEnumerator QuitAfterDelay()
-    {
-        yield return new WaitForSeconds(5f);
         Application.Quit();
     }
 }
