@@ -35,6 +35,7 @@ public class MouseController : MonoBehaviour
                         Debug.Log("Building clicked: " + hit.collider.name);
                         break;
                     default:
+                        IdentityManager.Instance.CloseMenu();
                         Debug.Log("Clicked on: " + hit.collider.name);
                         break;
                 }
