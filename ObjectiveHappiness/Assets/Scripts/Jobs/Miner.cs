@@ -7,6 +7,7 @@ public class Miner : Villager
 
     void Awake()
     {
+        // Set the job of the villager and his target
         JobName = "Mineur";
         JobTarget = "Rocher";
         JobRoutine = StartCoroutine(WanderRoutine());
@@ -18,6 +19,7 @@ public class Miner : Villager
     }
     public override void DoJob()
     {
+        // Miner recover stone
         ResourceManager.Instance.ResourceRecovery("stone");
     }
 }

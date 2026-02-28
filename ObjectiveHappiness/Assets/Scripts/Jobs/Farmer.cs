@@ -6,6 +6,7 @@ public class Farmer : Villager
 {
     private void Awake()
     {
+        // Set the job of the villager and his target
         JobName = "Harvester";
         JobTarget = "Buisson";
         JobRoutine = StartCoroutine(WanderRoutine());
@@ -19,6 +20,7 @@ public class Farmer : Villager
 
     public override void DoJob()
     {
+        // Farmer recover food
         ResourceManager.Instance.ResourceRecovery("food");
     }
 

@@ -7,13 +7,10 @@ public class Lumberjack : Villager
 
     void Awake()
     {
-        JobName = "Bûcheron";
+        // Set the job of the villager and his target
+        JobName = "Bï¿½cheron";
         JobTarget = "Arbre";
         JobRoutine = StartCoroutine(WanderRoutine());
-    }
-    void Update()
-    {
-        
     }
 
     public override void StartJob()
@@ -23,6 +20,7 @@ public class Lumberjack : Villager
 
     public override void DoJob()
     {
+        // Lumberjack recover wood
         ResourceManager.Instance.ResourceRecovery("wood");
     }
 

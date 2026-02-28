@@ -10,7 +10,7 @@ public class Mason : Villager
 
     private void Awake()
     {
-        // override du job target
+        // override of the job target
         JobName = "Mason";
         JobTarget = "construction_site";
     }
@@ -37,7 +37,7 @@ public class Mason : Villager
     {
         if (site == null) return;
 
-        // si on est disponible, on prend directement ce chantier
+        // If mason is available, he directly go the construction site
         if (!isWorking && constructionSite == null)
         {
             constructionSite = site.gameObject;
@@ -45,7 +45,7 @@ public class Mason : Villager
         }
         else
         {
-            // sinon on l'ajoute à la file d'attente
+            // Else, he go to the waiting list
             if (!assignedSites.Contains(site))
                 assignedSites.Add(site);
         }
@@ -55,7 +55,7 @@ public class Mason : Villager
     {
         if (isWorking) return;
 
-        // si pas de chantier assigné, cherche le plus proche
+        // If the villager doesn't have an assigned construction site, he find the closest
         if (constructionSite == null)
             constructionSite = FindNearestJobTarget();
 
@@ -138,11 +138,11 @@ public class Mason : Villager
     {
         if (site == null) return;
 
-        // Retirer de la liste si présent
+        // Delete of the list if present
         if (assignedSites.Contains(site))
             assignedSites.Remove(site);
 
-        // Si c'était notre chantier courant, le vider
+        // If it was the present construction site, empty it
         if (constructionSite != null)
         {
             var s = constructionSite.GetComponent<ConstructionSite>();
@@ -159,7 +159,7 @@ public class Mason : Villager
     {
         if (isWorking) return;
 
-        // s'il n'y a rien en attente, retourner en vagabondage
+        // If there is nothing waiting go as a vagabond
         if (assignedSites.Count == 0)
         {
             if (JobRoutine != null) StopCoroutine(JobRoutine);
@@ -167,7 +167,7 @@ public class Mason : Villager
             return;
         }
 
-        // prendre le prochain chantier en file
+        // Take the next construction site in waiting file
         constructionSite = assignedSites[0].gameObject;
         assignedSites.RemoveAt(0);
 
