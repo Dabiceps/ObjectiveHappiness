@@ -44,6 +44,7 @@ public class GameOverUI : MonoBehaviour
 
     IEnumerator Exitgame(float secondes)
     {
+        // Button to quit game
         yield return new WaitForSeconds(secondes);
         Application.Quit();
     }
