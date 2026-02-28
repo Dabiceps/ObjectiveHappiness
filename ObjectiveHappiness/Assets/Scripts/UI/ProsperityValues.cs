@@ -16,6 +16,7 @@ public class ValueUpdater : MonoBehaviour
 
     void Update()
     {
+        // Change the slider value with the ingame ressources
         slider.value = ResourceManager.Instance.prosperity;
         slidervalues.text = slider.value.ToString("0");
     }
