@@ -20,7 +20,7 @@ public class InGameTime : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning("Plus d’un InGameTime détecté dans la scène ! Un a été supprimé.");
+            Debug.LogWarning("Plus dï¿½un InGameTime dï¿½tectï¿½ dans la scï¿½ne ! Un a ï¿½tï¿½ supprimï¿½.");
             Destroy(gameObject);
             return;
         }
@@ -29,6 +29,7 @@ public class InGameTime : MonoBehaviour
 
     void Start()
     {
+        // Display informations in the top menu
         jour.text = "Jour : 1";
         heure.text = "Heure : 00:00";
         intjour = 1;
@@ -37,6 +38,7 @@ public class InGameTime : MonoBehaviour
         temps = 0.5f;
         workTime = temps * 5;
 
+        // Addlistener to time button to use them when we want
         start.onClick.AddListener(() => StartGame());
         pause.onClick.AddListener(() => OnPauseClick());
         resume.onClick.AddListener(() => OnResumeClick());
@@ -46,6 +48,7 @@ public class InGameTime : MonoBehaviour
 
     public void StartGame()
     {
+        // Initialise the time in game
         isPaused = false;
         StartCoroutine(TimeLoop());
         VillagerManager.Instance.StartGame();
@@ -53,11 +56,13 @@ public class InGameTime : MonoBehaviour
 
     void OnPauseClick()
     {
+        // Pause the game and set villager speed to 0
         isPaused = true;
         SetVillagerSpeed(0f);
     }
     void OnResumeClick()
     {
+        // Resume game
         isPaused = false;
         temps = 0.3f;
         workTime = temps * 5;
@@ -65,6 +70,7 @@ public class InGameTime : MonoBehaviour
     }
     void OnX2Click()
     {
+        // Make the game 2 times faster
         isPaused = false;
         temps = 0.15f;
         workTime = temps * 5;
@@ -73,6 +79,7 @@ public class InGameTime : MonoBehaviour
 
     void OnX3Click()
     {
+        // Make the game 2 times faster
         isPaused = false;
         temps = 0.005f;
         workTime = temps * 5;
@@ -81,12 +88,14 @@ public class InGameTime : MonoBehaviour
 
     IEnumerator TimeLoop()
     {
+        // Create the ingame time and make actions links to the time
         while (true)
         {
             if (!isPaused)
             {
                 intheure++;
 
+                // At 8:00 villagers start their jobs
                 if (intheure == 480)
                 {
                     VillagerManager.Instance.StartWork();
@@ -94,6 +103,7 @@ public class InGameTime : MonoBehaviour
                     night.gameObject.SetActive(false);
                 }
 
+                // At 19:00 They go to sleep
                 if (intheure == 1140)
                 {
                     VillagerManager.Instance.StartNight();
@@ -101,6 +111,7 @@ public class InGameTime : MonoBehaviour
                     night.gameObject.SetActive(true); 
                 }
 
+                // At 23:59 time go to 00:00 and the ressources are calculated
                 if (intheure >= 1440)
                 {
                     intjour++;
@@ -115,7 +126,7 @@ public class InGameTime : MonoBehaviour
                 // basetime = globaltime
                 // if (globaltime - basetime == 60) {action}
                 // (Effectue une action au bout de 1 heures ingame)
-                // Peut être utiliser pour la fatigue, la reconversion, les ressources ou la construction de batiments
+                // Peut ï¿½tre utiliser pour la fatigue, la reconversion, les ressources ou la construction de batiments
             }
 
             yield return new WaitForSeconds(temps);
@@ -125,6 +136,7 @@ public class InGameTime : MonoBehaviour
 
     void SetVillagerSpeed(float speed)
     {
+        // villager speed change with the time (pause, resume, x2, x3)
         foreach (Transform villager in VillagerManager.Instance.villagers)
         {
             villager.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = speed;
