@@ -18,19 +18,19 @@ public class Villager : MonoBehaviour, IJobInterface
 
     public virtual void DoJob() { }
 
-    // Remis en virtual pour que les sous-classes puissent override proprement
+    // Reverted to virtual so that subclasses can override properly
     public virtual void EndJob()
     {
         isWorking = false;
 
-        // Stopper toute coroutine active
+        // Stop all active coroutine
         if (JobRoutine != null)
         {
             StopCoroutine(JobRoutine);
             JobRoutine = null;
         }
 
-        // Stopper les animations & déplacements (avec null-checks)
+        // Stop animations & movement (with null-checks)
         var agent = GetComponent<NavMeshAgent>();
         var anim = GetComponent<Animator>();
 
@@ -44,7 +44,7 @@ public class Villager : MonoBehaviour, IJobInterface
             anim.SetBool("isWalking", false);
         }
 
-        // Le villageois N’EST PLUS en train de travailler
+        // The villager is no longer working
         isWorking = false;
         if (!Vagabond)
         {
@@ -71,26 +71,26 @@ public class Villager : MonoBehaviour, IJobInterface
                 }
             }
         }
-        // Si vagabond ou pas de maison trouvée, on part vagabonder
+        // Whether you're a vagabond or haven't found a home, you go wandering.
         JobRoutine = StartCoroutine(WanderRoutine());
     }
 
 
     public virtual void StartJob()
     {
-        // Si une routine existe, on l'arrête (sécurité)
+        // If a routine exists, we stop it (security)
         if (JobRoutine != null) StopCoroutine(JobRoutine);
 
         var buildingsParent = GameObject.Find("Buildings");
         if (buildingsParent == null)
         {
-            // pas de bâtiments, on vagabonde
+            // No buildings, we wander.
             isWorking = false;
             JobRoutine = StartCoroutine(WanderRoutine());
             return;
         }
 
-        // Si pas de JobTarget défini, on vagabonde aussi
+        // If no JobTarget is defined, we also wander.
         if (string.IsNullOrEmpty(JobTarget))
         {
             isWorking = false;
@@ -103,7 +103,7 @@ public class Villager : MonoBehaviour, IJobInterface
 
         Vector3 agentPos = transform.position;
 
-        // Parcours des bâtiments pour trouver la cible libre la plus proche
+        // Navigate the buildings to find the nearest free target
         foreach (Transform building in buildingsParent.transform)
         {
             if (building != null && building.CompareTag(JobTarget))
@@ -121,7 +121,7 @@ public class Villager : MonoBehaviour, IJobInterface
             }
         }
 
-        // Si on a trouvé une cible
+        // If we have found a target
         if (closestBuilding != null)
         {
             Building building1 = closestBuilding.GetComponent<Building>();
@@ -145,7 +145,7 @@ public class Villager : MonoBehaviour, IJobInterface
             }
         }
 
-    // si on n'a rien trouvé, on vagabonde
+    // If we haven't found anything, we wander.
     isWorking = false;
         JobRoutine = StartCoroutine(WanderRoutine());
     }
@@ -168,12 +168,12 @@ public class Villager : MonoBehaviour, IJobInterface
         Animator animator = GetComponent<Animator>();
         animator?.SetBool("isWalking", false);
 
-        // IMPORTANT : on stocke la coroutine de travail dans JobRoutine
+        // IMPORTANT: The working coroutine is stored in JobRoutine.
         if (InGameTime.Instance != null &&
             InGameTime.Instance.intheure >= 480 &&
             InGameTime.Instance.intheure < 1140)
         {
-            // JobRoutine est remplacée par la WorkLoop coroutine
+            // JobRoutine is replaced by the WorkLoop coroutine
             JobRoutine = StartCoroutine(WorkLoop());
         }
         else
@@ -204,16 +204,16 @@ public class Villager : MonoBehaviour, IJobInterface
                     IdentityManager.Instance.UpdateEnergy();
                 }
             }
-            yield return new WaitForSeconds(InGameTime.Instance.workTime); // rythme de travail
+            yield return new WaitForSeconds(InGameTime.Instance.workTime); // pace of work
         }
 
-        // Fin de journée ou pause : on remet le flag et on part vagabonder
+        // End of the day or break: we put the flag back up and go wandering
         isWorking = false;
 
         if (JobRoutine != null)
         {
-            // On ne stoppe pas explicitement la WorkLoop ici (on sort naturellement),
-            // mais on remplace JobRoutine pour que les StopCoroutine ailleurs fonctionne correctement.
+            // We don't explicitly stop the WorkLoop here (we exit naturally),
+            // but we replace the JobRoutine so that StopCoroutines elsewhere work correctly.
             JobRoutine = StartCoroutine(WanderRoutine());
         }
         else
@@ -225,8 +225,8 @@ public class Villager : MonoBehaviour, IJobInterface
     public virtual void DoSleep()
     {
         Debug.Log($"{Pseudo} dort");
-        // Par défaut on ne force pas un new Wander si on est déjà en JobRoutine null,
-        // mais on peut explicitement lancer le vagabondage si aucune coroutine n'est active.
+        // By default, a new Wander is not forced if the JobRoutine is already null,
+        // but wandering can be explicitly initiated if no coroutine is active.
         if (JobRoutine == null)
             JobRoutine = StartCoroutine(WanderRoutine());
         Energy = 100;
@@ -287,11 +287,11 @@ public class Villager : MonoBehaviour, IJobInterface
         return false;
     }
 
-    // Awake : initialisation par défaut. Les classes dérivées peuvent redéfinir Awake si nécessaire.
+    // Awake: default initialization. Derived classes can override Awake if necessary.
     void Awake()
     {
         JobTarget = "Ecole";
-        // On démarre en vagabondage
+        // We start by wandering
         JobRoutine = StartCoroutine(WanderRoutine());
     }
 
@@ -316,18 +316,18 @@ public class Villager : MonoBehaviour, IJobInterface
             if (building != null && building.CompareTag("Ecole"))
             {
                 school = building;
-                break; // On a trouvé une école, pas besoin de continuer la boucle
+                break; // We found a school, no need to continue the loop
             }
         }
 
         if (school == null)
         {
-            // Aucune école trouvée
+            // No schools found
             ErrorPopUp.Instance.DisplayPopUp("Aucune école n'a été construite dans le village !");
             return;
         }
 
-        // Si on a trouvé une école, on continue
+        // If we've found a school, we continue
         Building buildingComponent = school.GetComponent<Building>();
         if (buildingComponent == null)
             return;
