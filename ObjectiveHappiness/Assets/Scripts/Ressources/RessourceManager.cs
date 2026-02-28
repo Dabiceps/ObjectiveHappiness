@@ -15,7 +15,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning("Plus d’un RessourceManager détecté dans la scène ! Un a été supprimé.");
+            Debug.LogWarning("Plus dï¿½un RessourceManager dï¿½tectï¿½ dans la scï¿½ne ! Un a ï¿½tï¿½ supprimï¿½.");
             Destroy(gameObject);
             return;
         }
@@ -24,10 +24,11 @@ public class ResourceManager : MonoBehaviour
     }
     void Update()
     {
+        // Set the ressource each tick 
         UI.SetResource(wood.ToString(), stone.ToString(), food.ToString(), residents.ToString());
     }
 
-    // Actions effectuées en fin de journée
+    // Actions effectuï¿½es en fin de journï¿½e
     // Modifie : Food / Resident / Prosperity
     public void EndOfDay()
     {
@@ -60,10 +61,10 @@ public class ResourceManager : MonoBehaviour
         gameOverUI.WinVerification();
     }
 
-    // Méthode qui calcul le nombre de ressources récupéré en fonction du type (food/wood/stone)
+    // Mï¿½thode qui calcul le nombre de ressources rï¿½cupï¿½rï¿½ en fonction du type (food/wood/stone)
     public void ResourceRecovery(string type)
     {
-        //Calcul la nourriture récupérée en fonction du nombre de ferme
+        //Calcul la nourriture rï¿½cupï¿½rï¿½e en fonction du nombre de ferme
         if (type == "food")
         {
             int multi = 0;
@@ -82,7 +83,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    // Modification de la prospérité en fonction des éléments présents dans le jeu
+    // Modification de la prospï¿½ritï¿½ en fonction des ï¿½lï¿½ments prï¿½sents dans le jeu
     public void ProsperityModifiers()
     {
         int nbrlibrairie = CountBuilding("Librairie");
@@ -96,7 +97,7 @@ public class ResourceManager : MonoBehaviour
             prosperity += residents * (0.2f + nbrlibrairie*0.1f + nbrmusee*0.2f);
         }
         
-        // Baisse la prospérité de 0.3 pour chaques villageois ayant 0 d'énergie à la fin de la journée
+        // Baisse la prospï¿½ritï¿½ de 0.3 pour chaques villageois ayant 0 d'ï¿½nergie ï¿½ la fin de la journï¿½e
         foreach (Transform villager in VillagerManager.Instance.villagers)
         {
             if (GetVillagerEnergy(villager) == 0)
@@ -112,6 +113,7 @@ public class ResourceManager : MonoBehaviour
 
     public int CountBuilding(string tag)
     {
+        // Count the total of building in the game
         int count = 0;
         foreach (Transform building in GameObject.Find("Buildings").transform)
         {
@@ -125,6 +127,7 @@ public class ResourceManager : MonoBehaviour
 
     public int GetVillagerEnergy(Transform villager)
     {
+        // Return the energy of the villager to use it in other code
         IJobInterface jobInterface = villager.GetComponent<IJobInterface>();
         return jobInterface.Energy;
     }
