@@ -15,7 +15,7 @@ public class ErrorPopUp : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning("Plus d’un RessourceManager détecté dans la scène ! Un a été supprimé.");
+            Debug.LogWarning("Plus dï¿½un RessourceManager dï¿½tectï¿½ dans la scï¿½ne ! Un a ï¿½tï¿½ supprimï¿½.");
             Destroy(gameObject);
             return;
         }
@@ -25,6 +25,7 @@ public class ErrorPopUp : MonoBehaviour
 
     public void DisplayPopUp(string text)
     {
+        // To use the DisplayPopUp function, use DisplayPopUp("YourText")
         errortext.text = text;
         popup.gameObject.SetActive(true);
         StartCoroutine(HidePopUp());
@@ -32,6 +33,7 @@ public class ErrorPopUp : MonoBehaviour
 
     private IEnumerator HidePopUp()
     {
+        // Wait 3 sec before deleting the pop up for the player
         yield return new WaitForSeconds(3);
         popup.gameObject.SetActive(false);
     }
