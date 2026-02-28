@@ -22,7 +22,7 @@ public class IdentityManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning("Plus d’un IdentityManager détecté dans la scène ! Un a été supprimé.");
+            Debug.LogWarning("Plus dï¿½un IdentityManager dï¿½tectï¿½ dans la scï¿½ne ! Un a ï¿½tï¿½ supprimï¿½.");
             Destroy(gameObject);
             return;
         }
@@ -41,6 +41,8 @@ public class IdentityManager : MonoBehaviour
 
     public void OpenMenu(IJobInterface villager)
     {
+        // Open the menu on the left if you click on a villager
+        // Display information of each villager
         menu.SetActive(true);
         lastVillager = villager;
         currentVillager = ((MonoBehaviour)villager).gameObject;
@@ -50,6 +52,7 @@ public class IdentityManager : MonoBehaviour
 
     public void UpdateEnergy()
     {
+        // Update the energy of the villager in the UI
         if (!isOpen) return;
         energy.value = lastVillager.Energy;
         energyvalue.text = lastVillager.Energy.ToString();
@@ -63,6 +66,7 @@ public class IdentityManager : MonoBehaviour
 
     public void IdentitePerso(string IDpseudo, string IDjob, int IDage, bool IDvagabon, string IDaction, int IDenergie)
     {
+        // Identity display for each villager 
         pseudo.text = IDpseudo;
         job.text = IDjob;
         age.text = IDage.ToString() + " ans";
