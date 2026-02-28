@@ -18,6 +18,7 @@ public class IntroVideo : MonoBehaviour
 
     IEnumerator Flash()
     {
+        // Make the intro flash
         yield return new WaitForSeconds(0.8f);
         flashbang.SetActive(true);
         yield return new WaitForSeconds(0.2f);
@@ -26,6 +27,7 @@ public class IntroVideo : MonoBehaviour
 
     void EndReached(VideoPlayer vp)
     {
+        // When video end, we display the menu
         intro.SetActive(false);
         gamemenu.SetActive(true);
     }
